@@ -15,18 +15,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        handler.sendEmptyMessageDelayed(0, 3000);
+        //handler.sendEmptyMessageDelayed(0, 3000);
 
 
     }//onCreate..
 
-    Handler handler= new Handler(){
+    /*Handler handler= new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             Intent intent= new Intent(LoginActivity.this, AccessActivity.class);
             startActivity(intent);
             finish();
         }
-    };
+    };*/
 
 }//Login Activity..

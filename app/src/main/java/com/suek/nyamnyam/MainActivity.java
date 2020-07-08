@@ -2,6 +2,7 @@ package com.suek.nyamnyam;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
@@ -16,15 +17,23 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+    Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager pager;
     TabAdapter tabAdapter;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
 
         tabLayout= findViewById(R.id.tab_layout);
         tabAdapter= new TabAdapter(getSupportFragmentManager());
@@ -48,5 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
     }
 }
