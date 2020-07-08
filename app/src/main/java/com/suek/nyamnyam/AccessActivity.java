@@ -23,6 +23,8 @@ public class AccessActivity extends AppCompatActivity {
         @Override
         public void handleMessage(@NonNull Message msg) {
             Intent intent= new Intent(AccessActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
     };
 
