@@ -44,7 +44,7 @@
                     android:id="@+id/iv_food_culture"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@color/colorPrimary"/>
+                    android:background="@drawable/foodculturejpg"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -53,7 +53,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Recommended Recipes"/>
+                        android:text="Recommended Recipes"
+                        android:layout_marginBottom="15dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_recommended"
                         android:layout_width="wrap_content"
@@ -63,12 +68,11 @@
                     <TextView
                         android:id="@+id/tv_recipes"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gimbab"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center"
@@ -76,8 +80,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Special Days in Korea"
+                        android:text="Festivals in Korea"
                         android:layout_gravity="left"
+                        android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
                     <CalendarView

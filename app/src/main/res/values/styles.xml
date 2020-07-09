@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!--No action bar 다시하기-->
+
+
 </resources>

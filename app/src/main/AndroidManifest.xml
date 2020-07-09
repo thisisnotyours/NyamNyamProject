@@ -10,12 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AccessActivity"></activity>
+        <activity android:name=".FoodCategoryPageActivity"></activity>
+        <activity android:name=".AccessActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".LaunchActivity">
-
-        </activity>
-        <activity android:name=".MainActivity" >
+        <activity android:name=".LaunchActivity"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

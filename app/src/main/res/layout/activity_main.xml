@@ -20,13 +20,13 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#FFC907"/>
+                android:background="#759AF8"/>
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffffff"
-                app:tabIndicatorColor="#FFC907"
+                app:tabIndicatorColor="#759AF8"
                 app:tabIndicatorHeight="4dp"
                 app:tabSelectedTextColor="#333333"/>
         </com.google.android.material.appbar.AppBarLayout>
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fabCustomSize="100dp"
-                android:backgroundTint="#FFC907"
+                android:backgroundTint="#759AF8"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="40dp"
@@ -67,9 +67,13 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/header_nav"
+        android:layout_gravity="start"
+        android:background="@drawable/drawer_background"
+        android:layout_marginBottom="200dp">
     </com.google.android.material.navigation.NavigationView>
 
 

@@ -1,6 +1,5 @@
 package com.suek.nyamnyam;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
+// 1. Food Tab
+
 public class FragmentTab1Food extends Fragment {
 
     ArrayList<Item> items= new ArrayList<>();
-    CategoryAdapter adapter;
+    RecyclerCategoryAdapter adapter;
     RecyclerView recyclerView;
 
     ArrayList<RecommendedItems> recommendedItems= new ArrayList<>();
@@ -48,7 +50,7 @@ public class FragmentTab1Food extends Fragment {
 
 
         recyclerView= view.findViewById(R.id.recycler_food_category);
-        adapter= new CategoryAdapter(view.getContext(), items);
+        adapter= new RecyclerCategoryAdapter(view.getContext(), items);
         recyclerView.setAdapter(adapter);
 
 
