@@ -1,10 +1,12 @@
 package com.suek.nyamnyam;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,12 +64,28 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         TextView tvName;
         TextView tvName2;
 
-        public VH(@NonNull View itemView) {
+        public VH(@NonNull final View itemView) {
             super(itemView);
 
             this.civ= itemView.findViewById(R.id.civ);
             this.tvName= itemView.findViewById(R.id.tv_name);
             this.tvName2= itemView.findViewById(R.id.tv_name2);
+
+
+
+//food category page 각 recyclerview 에 리스너 달아주기
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent(context, VeganActivity.class);
+                    intent.putExtra("civ", items.get(getLayoutPosition()).image);
+                    intent.putExtra("tvName", items.get(getLayoutPosition()).name);
+                    intent.putExtra("tvName2", items.get(getLayoutPosition()).name2);
+
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

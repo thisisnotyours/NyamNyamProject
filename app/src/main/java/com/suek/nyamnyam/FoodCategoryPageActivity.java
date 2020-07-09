@@ -23,7 +23,7 @@ public class FoodCategoryPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_category_page);
 
-
+        //Food Category Recyclerview items
         items.add(new CategoryPageItems(R.drawable.bibimbap, "SOUP", "Non-Halal"));
         items.add(new CategoryPageItems(R.drawable.bibimbap, "SOUP", "Non-Halal"));
         items.add(new CategoryPageItems(R.drawable.bibimbap, "SOUP", "Non-Halal"));
@@ -34,11 +34,17 @@ public class FoodCategoryPageActivity extends AppCompatActivity {
         items.add(new CategoryPageItems(R.drawable.bibimbap, "SOUP", "Non-Halal"));
         items.add(new CategoryPageItems(R.drawable.bibimbap, "SOUP", "Non-Halal"));
         items.add(new CategoryPageItems(R.drawable.bibimbap, "SOUP", "Non-Halal"));
-
 
         recyclerView= findViewById(R.id.recycler);
         adapter= new CategoryPageAdapter(this, items);
         recyclerView.setAdapter(adapter);
+
+
+
+
+
+
+
 
     }
 

@@ -46,12 +46,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        android:padding="16dp">    <!--background 잘 되는지 체크하기 background decoration-->
+        android:padding="16dp">           <!--background 잘 되는지 체크하기 background decoration-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="15dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
