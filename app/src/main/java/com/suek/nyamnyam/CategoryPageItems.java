@@ -2,16 +2,18 @@ package com.suek.nyamnyam;
 
 public class CategoryPageItems {
 
-    int image;
-    String name;
-    String name2;
+    //recycler_category_page.xml 의 items
+
+    int civ;
+    String foodTitle;
+    String foodSub;
 
     public CategoryPageItems() {
     }
 
-    public CategoryPageItems(int image, String name, String name2) {
-        this.image = image;
-        this.name = name;
-        this.name2 = name2;
+    public CategoryPageItems(int civ, String foodTitle, String foodSub) {
+        this.civ = civ;
+        this.foodTitle = foodTitle;
+        this.foodSub = foodSub;
     }
 }

@@ -45,9 +45,9 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
         CategoryPageItems categoryPageItems= items.get(position);
-        vh.civ.setImageResource(categoryPageItems.image);
-        vh.tvName.setText(categoryPageItems.name);
-        vh.tvName2.setText(categoryPageItems.name2);
+        vh.civ.setImageResource(categoryPageItems.civ);
+        vh.tvFoodTitle.setText(categoryPageItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
+        vh.tvFoodSub.setText(categoryPageItems.foodSub);
     }
 
     @Override
@@ -60,28 +60,28 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
 
     class VH extends RecyclerView.ViewHolder{
 
-        CircleImageView civ;
-        TextView tvName;
-        TextView tvName2;
+        CircleImageView civ;   //내가만든 참조변수
+        TextView tvFoodTitle;
+        TextView tvFoodSub;
 
         public VH(@NonNull final View itemView) {
             super(itemView);
 
             this.civ= itemView.findViewById(R.id.civ);
-            this.tvName= itemView.findViewById(R.id.tv_name);
-            this.tvName2= itemView.findViewById(R.id.tv_name2);
+            this.tvFoodTitle= itemView.findViewById(R.id.tv_food_title);
+            this.tvFoodSub= itemView.findViewById(R.id.tv_food_sub);
 
 
 
-//food category page 각 recyclerview 에 리스너 달아주기
+//food category page 각 recyclerview 에 리스너 달아주기 -> 누르면 카테고리1 페이지로 이동
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, VeganActivity.class);
-                    intent.putExtra("civ", items.get(getLayoutPosition()).image);
-                    intent.putExtra("tvName", items.get(getLayoutPosition()).name);
-                    intent.putExtra("tvName2", items.get(getLayoutPosition()).name2);
+                    intent.putExtra("civ", items.get(getLayoutPosition()).civ);
+                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
+                    intent.putExtra("foodSub", items.get(getLayoutPosition()).foodSub);
 
                     context.startActivity(intent);
                 }

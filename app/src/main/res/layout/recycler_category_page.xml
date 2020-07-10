@@ -12,23 +12,23 @@
         android:padding="15dp"
         android:src="@drawable/bibimbap"/>   <!--android:elevation="14dp"  다시-->
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_food_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VEGAN"
         android:textStyle="bold"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:layout_toRightOf="@id/civ"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"/>
     <TextView
-        android:id="@+id/tv_name2"
+        android:id="@+id/tv_food_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="this is for vegitarian"
         android:layout_toRightOf="@id/civ"
         android:layout_centerInParent="true"
-        android:layout_below="@id/tv_name"
+        android:layout_below="@id/tv_food_title"
         android:layout_marginTop="3dp"
         android:layout_marginLeft="30dp"/>
 

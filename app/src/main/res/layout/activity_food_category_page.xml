@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Food"
@@ -27,14 +27,14 @@
             android:layout_marginLeft="30dp"/>
 
         <TextView
-            android:id="@+id/tv_title2"
+            android:id="@+id/tv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categories"
             android:textColor="#ffffff"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_toRightOf="@id/tv_title"
+            android:layout_toRightOf="@id/tv_food"
             android:layout_marginBottom="50dp"
             android:layout_marginTop="80dp"
             android:layout_marginLeft="8dp"/>
