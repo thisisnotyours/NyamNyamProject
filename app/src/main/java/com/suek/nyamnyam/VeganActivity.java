@@ -29,11 +29,11 @@ public class VeganActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vegan);
 
-        //카테고리 데이터 가져오기
+        //카테고리 데이터 가져오기  ---> 데이터들은 FragmentTab1Food.java 에 입력/저장
         Intent intent= getIntent();
         int civ= intent.getIntExtra("civ", R.drawable.ic_hot);   //R.drawable.ic_hot = 여기에는 해당 이미지가 없을때 대체로 보여주는 이미지.
-        String categoryTitle= intent.getStringExtra("categoryTitle");
-        String categorySub= intent.getStringExtra("categorySub");
+        String categoryTitle= intent.getStringExtra("foodTitle");   //name 틀리지 않게 입력!!!!!!
+        String categorySub= intent.getStringExtra("foodSub");
 
         tv_title= findViewById(R.id.tv_title);
         tv_sub= findViewById(R.id.tv_sub);

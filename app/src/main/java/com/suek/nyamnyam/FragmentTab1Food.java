@@ -35,7 +35,8 @@ public class FragmentTab1Food extends Fragment {
 
         View view= inflater.inflate(R.layout.tab1_food_fragment, container, false);
 
-        items.add(new Item(R.drawable.gametitle_09, "VEGAN"));
+        //drawer menu 에서 Food category 를 클릭하면 Food category 목록 보여주는 페이지로 이동해서 보여지는 데이터들..
+        items.add(new Item(R.drawable.gametitle_09, "VEGAN"));    //이미지들 바꿔주기
         items.add(new Item(R.drawable.gametitle_09, "SOUP"));
         items.add(new Item(R.drawable.gametitle_09, "RICE"));
         items.add(new Item(R.drawable.gametitle_09, "MEAT"));
@@ -54,6 +55,13 @@ public class FragmentTab1Food extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
+
+
+
+
+
+
+        //Food Tab Fragment 에서 보여지는 추천레시피 recyclerview
         recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
         recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
         recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));

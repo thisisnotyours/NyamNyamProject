@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="#759AF8">
 
     <ScrollView
@@ -112,7 +111,7 @@
 
 
 
-    <!--circleiamgeview 는 linearlayout 안에 있음-->
+    <!--circleiamgeview 는 Relativelayout(겹칠수있음) 안에 있음-->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civ"
         android:layout_width="200dp"
