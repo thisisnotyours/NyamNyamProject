@@ -4,16 +4,21 @@ public class CategoryPageItems {
 
     //recycler_category_page.xml 의 items
 
-    int civ;
+    String civ;
+    int food_bg;
     String foodTitle;
     String foodSub;
+    String foodMsg;
+
 
     public CategoryPageItems() {
     }
 
-    public CategoryPageItems(int civ, String foodTitle, String foodSub) {
+    public CategoryPageItems(String civ, int food_bg, String foodTitle, String foodSub, String foodMsg) {
         this.civ = civ;
+        this.food_bg= food_bg;
         this.foodTitle = foodTitle;
         this.foodSub = foodSub;
+        this.foodMsg=foodMsg;
     }
 }

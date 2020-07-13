@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -45,7 +47,8 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
         CategoryPageItems categoryPageItems= items.get(position);
-        vh.civ.setImageResource(categoryPageItems.civ);
+        //vh.civ.setImageResource(categoryPageItems.civ);
+        Glide.with(context).load(categoryPageItems.civ).into(vh.civ);
         vh.tvFoodTitle.setText(categoryPageItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
         vh.tvFoodSub.setText(categoryPageItems.foodSub);
     }
@@ -80,8 +83,10 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
                     Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, VeganActivity.class);
                     intent.putExtra("civ", items.get(getLayoutPosition()).civ);
+                    intent.putExtra("food_bg", items.get(getLayoutPosition()).food_bg);
                     intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
                     intent.putExtra("foodSub", items.get(getLayoutPosition()).foodSub);
+                    intent.putExtra("foodMsg", items.get(getLayoutPosition()).foodMsg);
 
                     context.startActivity(intent);
                 }

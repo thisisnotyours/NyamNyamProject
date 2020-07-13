@@ -3,15 +3,25 @@ package com.suek.nyamnyam;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+
+import org.w3c.dom.Text;
 
 public class RecipeActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager pager;
     TabRecipeAdapter recipeAdapter;
+
+    String civFood;
+    String foodTitle;
+    String foodCategory;
+    String foodSub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +49,16 @@ public class RecipeActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+        Intent intent= getIntent();
+        civFood= intent.getStringExtra("civFood");
+        foodTitle= intent.getStringExtra("tvTitle");
+        foodCategory= intent.getStringExtra("tvCategory");
+        foodSub= intent.getStringExtra("tvSub");
+
+        //Toast.makeText(this, ""+foodCategory, Toast.LENGTH_SHORT).show();
 
     }
 }

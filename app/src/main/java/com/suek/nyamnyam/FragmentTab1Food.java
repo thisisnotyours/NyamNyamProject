@@ -1,9 +1,11 @@
 package com.suek.nyamnyam;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,35 +27,31 @@ public class FragmentTab1Food extends Fragment {
     RecommendedAdapter recommendedAdapter;
     RecyclerView recommendedRecyclerView;
 
-
-
-
+    ImageView iv;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view= inflater.inflate(R.layout.tab1_food_fragment, container, false);
+        final View view= inflater.inflate(R.layout.tab1_food_fragment, container, false);
 
-        //drawer menu 에서 Food category 를 클릭하면 Food category 목록 보여주는 페이지로 이동해서 보여지는 데이터들..
-        items.add(new Item(R.drawable.gametitle_09, "VEGAN"));    //이미지들 바꿔주기
-        items.add(new Item(R.drawable.gametitle_09, "SOUP"));
-        items.add(new Item(R.drawable.gametitle_09, "RICE"));
-        items.add(new Item(R.drawable.gametitle_09, "MEAT"));
-        items.add(new Item(R.drawable.gametitle_09, "VEGAN"));
-        items.add(new Item(R.drawable.gametitle_09, "SOUP"));
-        items.add(new Item(R.drawable.gametitle_09, "RICE"));
-        items.add(new Item(R.drawable.gametitle_09, "MEAT"));
-        items.add(new Item(R.drawable.gametitle_09, "VEGAN"));
-        items.add(new Item(R.drawable.gametitle_09, "SOUP"));
-        items.add(new Item(R.drawable.gametitle_09, "RICE"));
-        items.add(new Item(R.drawable.gametitle_09, "MEAT"));
 
+        //Food Category Recyclerview items
+        items.add(new Item("https://www.feastingathome.com/wp-content/uploads/2018/01/Korean-Seoul-Bowl-vegan-bibimbap-100-4.jpg", "VEGAN"));    //이미지들 바꿔주기
+        items.add(new Item("https://i.pinimg.com/originals/be/d7/80/bed780f05b8d545a63fbfcd5e6372a70.jpg", "SOUP"));
+        items.add(new Item("https://www.nongsaro.go.kr/ps/img/interabang/num207/headerImg.jpg", "RICE"));
+        items.add(new Item("https://m.handokmall.kr/web/product/big/201901/b76a02afec251e63c5f3013f3bd461b5.jpg", "MEAT"));
+        items.add(new Item("https://image.auction.co.kr/itemimage/11/a9/e0/11a9e0eb26.jpg", "NOODLE"));
+        items.add(new Item("https://i.ytimg.com/vi/ybCOfiNp01M/maxresdefault.jpg", "VEGGIE"));
+        items.add(new Item("https://travelright.com/wp-content/uploads/2019/12/Korean-Patbingsu.jpg", "DESSERT"));
+        items.add(new Item("https://files.bonif.co.kr/upload/cmdt/BF101_pic_qhO61yeq.jpg", "PORRIDGE"));
+        items.add(new Item("https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2019/05/17/965cc82059734e0f8d3159e99b4af981_%E1%84%81%E1%85%A9%E1%86%BE%E1%84%89%E1%85%A9%E1%86%BC%E1%84%91%E1%85%A7%E1%86%AB-1030x773.jpg", "SPECIAL"));
+        items.add(new Item("https://imagescdn.gettyimagesbank.com/500/201708/jv10928958.jpg", "PANCAKE"));
+        items.add(new Item("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Dak-kkochi.jpg/220px-Dak-kkochi.jpg", "BUNSIK"));
 
         recyclerView= view.findViewById(R.id.recycler_food_category);
         adapter= new RecyclerCategoryAdapter(view.getContext(), items);
         recyclerView.setAdapter(adapter);
-
 
 
 
@@ -75,6 +73,17 @@ public class FragmentTab1Food extends Fragment {
         recommendedRecyclerView= view.findViewById(R.id.recycler_recommended);
         recommendedAdapter= new RecommendedAdapter(getActivity(), recommendedItems);
         recommendedRecyclerView.setAdapter(recommendedAdapter);
+
+
+        iv= view.findViewById(R.id.iv_food_culture);
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(), FoodCultureActivity.class);
+                intent.putExtra("image", "korean food culture");   //value 는 무슨 역할????????
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

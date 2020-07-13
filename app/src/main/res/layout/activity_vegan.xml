@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    android:id="@+id/linear_foodBackground"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RECIPES"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#ffffffff"
             android:layout_below="@+id/tv_title"
@@ -51,7 +53,7 @@
             android:layout_below="@+id/tv_sub"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="7dp"
-            android:maxLines="5"
+            android:maxLines="10"
             android:textColor="#ffffff"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
  when an unknown printer took a galley of type and scrambled it to m" />
@@ -61,7 +63,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_msg"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="50dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>

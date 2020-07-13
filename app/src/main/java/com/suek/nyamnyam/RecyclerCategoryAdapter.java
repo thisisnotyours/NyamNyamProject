@@ -1,13 +1,17 @@
 package com.suek.nyamnyam;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -29,7 +33,7 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_food_category, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_category, parent, false);
         VH holder= new VH(itemView);
 
         return holder;
@@ -39,7 +43,7 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH) holder;
         Item item= items.get(position);
-        vh.civ.setImageResource(item.img);
+        Glide.with(context).load(item.imgUrl).into(vh.civ);
         vh.tvName.setText(item.name);
 
     }
@@ -56,11 +60,23 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
         CircleImageView civ;
         TextView tvName;
 
-        public VH(@NonNull View itemView) {
+        public VH(@NonNull final View itemView) {
             super(itemView);
-
             this.civ= itemView.findViewById(R.id.civ);
             this.tvName= itemView.findViewById(R.id.tv_name);
+
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent(context, FoodCategoryPageActivity.class);                   //다시하기.....--> VeganActivity로..
+                    intent.putExtra("image", "category recycler image");
+                    intent.putExtra("title", "category recycler title");
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

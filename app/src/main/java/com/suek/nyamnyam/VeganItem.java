@@ -4,19 +4,19 @@ public class VeganItem {
 
     //recycler
 
-    int civ;
-    String tvName;
-    String tvName2;
-    String tvName3;
+    String civFood;
+    String tvTitle;
+    String tvCategory;
+    String tvSub;
 
     public VeganItem() {
     }
 
-    public VeganItem(int civ, String tvName, String tvName2, String tvName3) {
-        this.civ = civ;
-        this.tvName = tvName;
-        this.tvName2 = tvName2;
-        this.tvName3 = tvName3;
+    public VeganItem(String civFood, String tvTitle, String tvCategory, String tvSub) {
+        this.civFood = civFood;
+        this.tvTitle = tvTitle;
+        this.tvCategory = tvCategory;
+        this.tvSub = tvSub;
     }
 }
 

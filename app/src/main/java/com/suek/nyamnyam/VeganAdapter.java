@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -38,10 +40,10 @@ public class VeganAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH) holder;
         VeganItem veganItem= items.get(position);
-        vh.civ.setImageResource(veganItem.civ);
-        vh.tvName.setText(veganItem.tvName);
-        vh.tvName2.setText(veganItem.tvName2);
-        vh.tvName3.setText(veganItem.tvName3);
+        Glide.with(context).load(veganItem.civFood).into(vh.civ);
+        vh.tvTitle.setText(veganItem.tvTitle);
+        vh.tvCategory.setText(veganItem.tvCategory);
+        vh.tvSub.setText(veganItem.tvSub);
 
     }
 
@@ -56,18 +58,18 @@ public class VeganAdapter extends RecyclerView.Adapter {
     class VH extends RecyclerView.ViewHolder{
 
         CircleImageView civ;
-        TextView tvName;
-        TextView tvName2;
-        TextView tvName3;
+        TextView tvTitle;
+        TextView tvCategory;
+        TextView tvSub;
      /*참조변수 이름바꾸기... 헷갈림*/
 
         public VH(@NonNull final View itemView) {
             super(itemView);
 
             this.civ= itemView.findViewById(R.id.civ);
-            this.tvName= itemView.findViewById(R.id.tv_name);
-            this.tvName2= itemView.findViewById(R.id.tv_name2);
-            this.tvName3= itemView.findViewById(R.id.tv_name3);
+            this.tvTitle= itemView.findViewById(R.id.tv_title);
+            this.tvCategory= itemView.findViewById(R.id.tv_category);
+            this.tvSub= itemView.findViewById(R.id.tv_sub);
 
 
 
@@ -78,10 +80,10 @@ public class VeganAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, RecipeActivity.class);
-                    intent.putExtra("civ", items.get(getLayoutPosition()).civ);
-                    intent.putExtra("tvName", items.get(getLayoutPosition()).tvName);
-                    intent.putExtra("tvName2", items.get(getLayoutPosition()).tvName2);
-                    intent.putExtra("tvName3", items.get(getLayoutPosition()).tvName3);
+                    intent.putExtra("civFood", items.get(getLayoutPosition()).civFood);
+                    intent.putExtra("tvTitle", items.get(getLayoutPosition()).tvTitle);
+                    intent.putExtra("tvCategory", items.get(getLayoutPosition()).tvCategory);
+                    intent.putExtra("tvSub", items.get(getLayoutPosition()).tvSub);
 
                     context.startActivity(intent);
                 }

@@ -4,10 +4,34 @@
     android:layout_height="wrap_content"
     android:background="#759AF8">
 
+    <TextView
+        android:id="@+id/tv_howtocook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOW TO"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COOK"
+
+        android:textSize="24sp"
+        android:textColor="#ffffffff"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tv_howtocook"
+        android:layout_marginLeft="8dp"/>
+
+
+
+
     <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/recipe_background">
 
         <RelativeLayout
@@ -36,7 +60,7 @@
                 android:layout_below="@id/tv_food_category"
                 android:layout_marginLeft="80dp"/>
             <TextView
-                android:id="@+id/tv_food_title_kor"
+                android:id="@+id/tv_food_title_sub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="산채 비빔밥"
@@ -59,7 +83,7 @@
                 android:text="Ingredient"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:layout_below="@id/tv_food_title_kor"
+                android:layout_below="@id/tv_food_title_sub"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="40dp"/>
             <TextView
@@ -113,11 +137,11 @@
 
     <!--circleiamgeview 는 Relativelayout(겹칠수있음) 안에 있음-->
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ"
+        android:id="@+id/civ_food"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bibimbap"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="100dp"/>
 
 </RelativeLayout>
