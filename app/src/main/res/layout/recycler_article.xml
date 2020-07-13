@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:id="@+id/tv_article_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5 reasons why Korean food is healthy"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/iv"
+        android:layout_marginLeft="10dp"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
