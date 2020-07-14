@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab, fab1_my_blog, fab2_board, fab3_post;
     TextView tv_my_blog, tv_board, tv_post;
     Animation fab_open, fab_close, fab_clock, fab_anticlock;
+
+    // Draggable FAB
+    float startX;
+    float startRawX;
+    float distanceX;
+    int lastAction;
+
 
 
     @Override
@@ -188,6 +196,41 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "See what you've posted!", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+
+        //Draggable FAB...
+        /*fab.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {    //view v 는 FAB 를 누른놈
+                switch (event.getActionMasked()){
+                    case MotionEvent.ACTION_DOWN:
+                        startX= v.getX() - event.getRawX();
+                        startRawX= event.getRawX();
+                        lastAction= MotionEvent.ACTION_DOWN;
+                        break;
+                        
+                    case MotionEvent.ACTION_MOVE:
+                        v.setX(event.getRawX() + startX);
+                        v.setY(event.getRawY() + startX);
+                        lastAction= MotionEvent.ACTION_MOVE;
+                        break;
+                        
+                    case MotionEvent.ACTION_UP:
+                        distanceX= event.getRawX()-startRawX;
+                        if(Math.abs(distanceX)<10){
+
+                        }break;
+
+                    default:
+                        return false;
+                }
+                
+                return false;
+            }
+        });*/
 
 
     }//onCreate..

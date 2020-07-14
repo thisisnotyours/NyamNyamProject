@@ -1,10 +1,12 @@
 package com.suek.nyamnyam;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,9 @@ public class FragmentTab1Food extends Fragment {
     RecyclerView recommendedRecyclerView;
 
     ImageView iv;
+
+    CalendarView calendarView;
+    Boolean selectDate= true;
 
     @Nullable
     @Override
@@ -82,6 +87,33 @@ public class FragmentTab1Food extends Fragment {
                 Intent intent= new Intent(getContext(), FoodCultureActivity.class);
                 intent.putExtra("image", "korean food culture");   //value 는 무슨 역할????????
                 startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //다시
+
+        //달력 날짜를 클릭하면 뜨는 다이얼로그
+        calendarView= view.findViewById(R.id.calendarview);
+        calendarView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(selectDate){
+                    //AlertDialog
+                }
             }
         });
 
