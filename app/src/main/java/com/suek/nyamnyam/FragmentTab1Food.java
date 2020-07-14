@@ -37,8 +37,8 @@ public class FragmentTab1Food extends Fragment {
 
 
         //Food Category Recyclerview items
-        items.add(new Item("https://www.feastingathome.com/wp-content/uploads/2018/01/Korean-Seoul-Bowl-vegan-bibimbap-100-4.jpg", "VEGAN"));    //이미지들 바꿔주기
-        items.add(new Item("https://i.pinimg.com/originals/be/d7/80/bed780f05b8d545a63fbfcd5e6372a70.jpg", "SOUP"));
+        items.add(new Item("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "VEGAN"));    //이미지들 바꿔주기
+        items.add(new Item("https://recipe1.ezmember.co.kr/cache/recipe/2015/04/21/84d2afaa37d7d004c66bfb32817744a11.jpg", "SOUP"));
         items.add(new Item("https://www.nongsaro.go.kr/ps/img/interabang/num207/headerImg.jpg", "RICE"));
         items.add(new Item("https://m.handokmall.kr/web/product/big/201901/b76a02afec251e63c5f3013f3bd461b5.jpg", "MEAT"));
         items.add(new Item("https://image.auction.co.kr/itemimage/11/a9/e0/11a9e0eb26.jpg", "NOODLE"));
@@ -47,7 +47,7 @@ public class FragmentTab1Food extends Fragment {
         items.add(new Item("https://files.bonif.co.kr/upload/cmdt/BF101_pic_qhO61yeq.jpg", "PORRIDGE"));
         items.add(new Item("https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2019/05/17/965cc82059734e0f8d3159e99b4af981_%E1%84%81%E1%85%A9%E1%86%BE%E1%84%89%E1%85%A9%E1%86%BC%E1%84%91%E1%85%A7%E1%86%AB-1030x773.jpg", "SPECIAL"));
         items.add(new Item("https://imagescdn.gettyimagesbank.com/500/201708/jv10928958.jpg", "PANCAKE"));
-        items.add(new Item("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Dak-kkochi.jpg/220px-Dak-kkochi.jpg", "BUNSIK"));
+        items.add(new Item("https://imagescdn.gettyimagesbank.com/500/201811/a11203592.jpg", "BUNSIK"));
 
         recyclerView= view.findViewById(R.id.recycler_food_category);
         adapter= new RecyclerCategoryAdapter(view.getContext(), items);

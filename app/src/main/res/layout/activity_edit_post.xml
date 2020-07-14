@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditPostActivity"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_person_white_24dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#9CA1A1"
+            app:civ_circle_background_color="#9CA1A1"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User ID"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#868888"
+            android:layout_toRightOf="@id/civ"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:id="@+id/civ_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_attach_file_grey_20dp"
+            android:layout_above="@id/et_msg"
+            android:layout_toRightOf="@id/et_title"
+            android:layout_marginLeft="50dp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_save_white_20dp"
+            android:layout_alignParentRight="true"
+            android:layout_above="@id/et_msg"
+            android:layout_toRightOf="@id/civ_photo"
+            android:layout_marginLeft="8dp"/>
+
+
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/civ"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Write a title..."
+            android:textColorHint="#9CA1A1" />
+
+
+        <EditText
+            android:id="@+id/et_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_title"
+            android:hint="Write a caption.."
+            android:inputType="textMultiLine"
+            android:textColorHint="#9CA1A1" />
+
+
+
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/background2"
+            android:layout_below="@id/et_msg"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

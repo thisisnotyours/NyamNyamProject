@@ -72,7 +72,7 @@ public class VeganActivity extends AppCompatActivity {
         }else if(categoryTitle.equals("DESSERT")){
             veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "DESSERT", "산채 비빔밥"));
         }else if(categoryTitle.equals("PORRIDGE")){
-            
+
         }else if(categoryTitle.equals("SPECIAL")){
 
         }else if(categoryTitle.equals("PANCAKE")){
