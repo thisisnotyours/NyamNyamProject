@@ -187,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Wanna check what others shared?", Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(MainActivity.this, BoardActivity.class);
+                startActivity(intent);
             }
         });
 

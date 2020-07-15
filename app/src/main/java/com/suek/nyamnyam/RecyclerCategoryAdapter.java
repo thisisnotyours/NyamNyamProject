@@ -22,6 +22,7 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<Item> items;
 
+
     public RecyclerCategoryAdapter(Context context, ArrayList<Item> items) {
         this.context = context;
         this.items = items;
@@ -70,7 +71,7 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, ""+tvName.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, FoodCategoryPageActivity.class);                   //다시하기.....--> VeganActivity로..
                     intent.putExtra("image", "category recycler image");
                     intent.putExtra("title", "category recycler title");

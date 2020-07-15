@@ -80,7 +80,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, ""+tvFoodSub.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, VeganActivity.class);
                     intent.putExtra("civ", items.get(getLayoutPosition()).civ);
                     intent.putExtra("food_bg", items.get(getLayoutPosition()).food_bg);

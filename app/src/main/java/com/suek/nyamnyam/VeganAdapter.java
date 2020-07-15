@@ -78,7 +78,7 @@ public class VeganAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, ""+tvTitle.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, RecipeActivity.class);
                     intent.putExtra("civFood", items.get(getLayoutPosition()).civFood);
                     intent.putExtra("tvTitle", items.get(getLayoutPosition()).tvTitle);
