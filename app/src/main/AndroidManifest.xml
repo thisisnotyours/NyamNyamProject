@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MyPostActivity"></activity>
         <activity android:name=".BoardActivity" />
         <activity android:name=".EditPostActivity" />
         <activity android:name=".FoodCultureActivity" />

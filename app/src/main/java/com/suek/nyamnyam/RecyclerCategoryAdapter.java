@@ -68,13 +68,24 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
 
 
 
+            /*itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(context, ""+tvName.getText(), Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent(context, VeganActivity.class);                   //다시하기.....--> VeganActivity로..
+                    intent.putExtra("image", "category recycler image");
+                    intent.putExtra("title", items.get(getLayoutPosition()).name);
+                    context.startActivity(intent);
+                }
+            });*/
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, ""+tvName.getText(), Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(context, FoodCategoryPageActivity.class);                   //다시하기.....--> VeganActivity로..
-                    intent.putExtra("image", "category recycler image");
-                    intent.putExtra("title", "category recycler title");
+                    Intent intent= new Intent(context, VeganActivity.class);
+                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).name);
+                    intent.putExtra("civ", items.get(getLayoutPosition()).imgUrl);
                     context.startActivity(intent);
                 }
             });

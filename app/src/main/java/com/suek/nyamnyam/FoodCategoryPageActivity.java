@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
@@ -41,6 +42,8 @@ public class FoodCategoryPageActivity extends AppCompatActivity {
         recyclerView= findViewById(R.id.recycler);
         adapter= new CategoryPageAdapter(this, items);
         recyclerView.setAdapter(adapter);
+
+        //Intent intent
 
 
 

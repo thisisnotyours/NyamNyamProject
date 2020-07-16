@@ -196,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "See what you've posted!", Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(MainActivity.this, MyPostActivity.class);
+                startActivity(intent);
             }
         });
 

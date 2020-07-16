@@ -81,7 +81,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, ""+tvFoodSub.getText(), Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(context, VeganActivity.class);
+                    Intent intent= new Intent(context, VeganActivity.class);           //category page items 의 데이터를 VeganActivity 로 보냄
                     intent.putExtra("civ", items.get(getLayoutPosition()).civ);
                     intent.putExtra("food_bg", items.get(getLayoutPosition()).food_bg);
                     intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
