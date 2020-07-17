@@ -26,14 +26,15 @@
             android:layout_marginTop="300dp"
             android:layout_marginLeft="20dp"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/iv_speech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_headset_white_24dp"
+            android:src="@drawable/ic_headset_white_60dp"
             android:layout_toRightOf="@+id/tv_title"
-            android:layout_marginTop="310dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginTop="295dp"
+            android:layout_marginLeft="16dp"
+            android:onClick="clickSpeech"/>
 
         <TextView
             android:id="@+id/tv_sub"

@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +35,7 @@ public class VeganActivity extends AppCompatActivity {
 
     // Text to speech
     TextToSpeech textToSpeech;
-    AppCompatImageView iv;
+    ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,32 +99,33 @@ public class VeganActivity extends AppCompatActivity {
 
 
 
+
+
+
         //  Text to Speech
-        iv= findViewById(R.id.iv_speech);
         textToSpeech= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                if(status == TextToSpeech.SUCCESS){
-                    int result= textToSpeech.setLanguage(Locale.KOREA);
-                    if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
-                        Toast.makeText(VeganActivity.this, "No support from this language", Toast.LENGTH_SHORT).show();
-                    }else {
-                        iv.setEnabled(true);
-                        textToSpeech.setPitch(0.7f);
-                        textToSpeech.setSpeechRate(1.2f);
-                    }
+                if(status == textToSpeech.SUCCESS){
+                    textToSpeech.setLanguage(Locale.KOREAN);
                 }
             }
         });
 
+        iv= findViewById(R.id.iv_speech);
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //textToSpeech.speak(tv_sub)
+                textToSpeech.setPitch(1.0f);   //음성톤- 기본설정
+                textToSpeech.setSpeechRate(0.5f); //읽는 속도 0.5배 빠르기
+                textToSpeech.speak(tv_sub.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
-    }
+
+    }//onCreate
+
+
 
 
 

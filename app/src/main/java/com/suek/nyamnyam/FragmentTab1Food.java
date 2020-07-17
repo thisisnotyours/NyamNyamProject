@@ -149,9 +149,9 @@ public class FragmentTab1Food extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<CalendarItem>> call, Response<ArrayList<CalendarItem>> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
                     ArrayList<CalendarItem> items= response.body();
-                    Toast.makeText(getContext(), items.size()+"", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), items.size()+"", Toast.LENGTH_SHORT).show();
 
                     if(items.size()!=0){
 
