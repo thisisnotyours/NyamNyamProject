@@ -186,7 +186,7 @@
         app:headerLayout="@layout/header_nav"
         android:layout_gravity="start"
         android:background="@drawable/drawer_background"
-        android:layout_marginBottom="200dp">
+        android:layout_marginBottom="30dp">
     </com.google.android.material.navigation.NavigationView>
 
 

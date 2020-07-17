@@ -81,7 +81,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SPECIAL EVENTS"
+                        android:text="SPECIAL EVENTS IN KOREA"
                         android:layout_gravity="left"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -90,7 +90,7 @@
                         android:id="@+id/calendarview"
                         android:layout_width="400dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal" />
+                        android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
 
 

@@ -1,17 +1,22 @@
 package com.suek.nyamnyam;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class VeganActivity extends AppCompatActivity {
 
@@ -25,6 +30,10 @@ public class VeganActivity extends AppCompatActivity {
     TextView tv_sub;
     TextView tv_msg;
     LinearLayout linearLayout;
+
+    // Text to speech
+    TextToSpeech textToSpeech;
+    AppCompatImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,5 +94,37 @@ public class VeganActivity extends AppCompatActivity {
         veganAdapter= new VeganAdapter(this, veganItems);
         recyclerView.setAdapter(veganAdapter);
 
+
+
+
+        //  Text to Speech
+        iv= findViewById(R.id.iv_speech);
+        textToSpeech= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status == TextToSpeech.SUCCESS){
+                    int result= textToSpeech.setLanguage(Locale.KOREA);
+                    if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
+                        Toast.makeText(VeganActivity.this, "No support from this language", Toast.LENGTH_SHORT).show();
+                    }else {
+                        iv.setEnabled(true);
+                        textToSpeech.setPitch(0.7f);
+                        textToSpeech.setSpeechRate(1.2f);
+                    }
+                }
+            }
+        });
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               //textToSpeech.speak(tv_sub)
+            }
+        });
+
     }
+
+
+
+
 }

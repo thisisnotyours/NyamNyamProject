@@ -2,19 +2,32 @@ package com.suek.nyamnyam;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 
 // 1. Food Tab
@@ -32,7 +45,8 @@ public class FragmentTab1Food extends Fragment {
     ImageView iv;
 
     CalendarView calendarView;
-    Boolean selectDate= true;
+    ArrayList<CalendarItem> calendarItems= new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -108,16 +122,77 @@ public class FragmentTab1Food extends Fragment {
 
         //달력 날짜를 클릭하면 뜨는 다이얼로그
         calendarView= view.findViewById(R.id.calendarview);
-        calendarView.setOnClickListener(new View.OnClickListener() {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onClick(View v) {
-                if(selectDate){
-                    //AlertDialog
-                }
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+
+                //String date=year+"-"+(month+1)+"-"+dayOfMonth;
+                String date= String.format("%4d-%02d-%02d", year, (month+1), dayOfMonth);
+                Log.i("tag", date);
+                loadData(date);
+
             }
         });
-
         return view;
+
+
+
+    }//onCreateView
+
+
+
+    void loadData(String date){
+        Retrofit retrofit= RetrofitHelper_Calendar.getInstance();
+        RetrofitService_Calendar retrofitService= retrofit.create(RetrofitService_Calendar.class);
+        Call<ArrayList<CalendarItem>> call= retrofitService.loadDataFromCalendar(date);
+        call.enqueue(new Callback<ArrayList<CalendarItem>>() {
+            @Override
+            public void onResponse(Call<ArrayList<CalendarItem>> call, Response<ArrayList<CalendarItem>> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
+                    ArrayList<CalendarItem> items= response.body();
+                    Toast.makeText(getContext(), items.size()+"", Toast.LENGTH_SHORT).show();
+
+                    if(items.size()!=0){
+
+                        AlertDialog.Builder builder= new AlertDialog.Builder(getContext());
+                        View view1= LayoutInflater.from(getActivity()).inflate(R.layout.calendar_dialog, null);   //붙일 부모가 없으니 null
+
+
+                        CalendarItem item= items.get(0);
+                        TextView tvTitle= view1.findViewById(R.id.tv_title);
+                        TextView tvDate= view1.findViewById(R.id.tv_date);
+                        TextView tvMsg= view1.findViewById(R.id.tv_msg);
+                        ImageView iv= view1.findViewById(R.id.iv);
+
+                        tvTitle.setText(item.title);
+                        tvDate.setText(item.date);
+                        tvMsg.setText(item.msg);
+                        String imgUri= "http://suhyun2963.dothome.co.kr/CalendarDialog/"+item.file;
+                        Glide.with(view1).load(imgUri).into(iv);
+
+
+                        //Log.i("tag",  )
+                        //Glide.with(view1).load()
+
+
+
+
+                        builder.setView(view1);
+                        AlertDialog alertDialog= builder.create();
+                        alertDialog.show();
+
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<CalendarItem>> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
