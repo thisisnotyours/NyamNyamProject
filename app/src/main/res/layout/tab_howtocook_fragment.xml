@@ -66,12 +66,13 @@
                 android:text="산채 비빔밥"
                 android:layout_below="@id/tv_food_title"
                 android:layout_marginLeft="80dp"/>
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
+                android:id="@+id/iv_headset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_headset_darkgrey_24dp"
+                android:src="@drawable/ic_headset_grey_40__dp"
                 android:layout_toRightOf="@id/tv_food_title"
-                android:layout_marginTop="144dp"
+                android:layout_marginTop="135dp"
                 android:layout_marginLeft="10dp"/>
 
 
