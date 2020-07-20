@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -50,6 +51,22 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+
+
+
+    //google login- firebase 인증절차 라이브러리
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'    //애널리틱스
+    implementation 'com.google.firebase:firebase-auth:19.3.1'         //인증
+    //프로필 이미지를 온전하게 구현하려면 glide 속성도 필요- 이미지 로딩 라이브러리 위에서 이미 추가.
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'    //글라이드 이미지 로딩
+
+
+
+
 
 
 }

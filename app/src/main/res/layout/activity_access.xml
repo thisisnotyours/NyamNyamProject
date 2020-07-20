@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E91E63"
-    tools:context=".AccessActivity">
+    tools:context=".LoginActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_person_white_24dp"
+        android:background="#706E71"
+        android:layout_above="@id/tv_nickname"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Access Activity"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:text="Nickname"
+        android:textSize="20sp"
         android:layout_centerInParent="true"
-        android:paddingLeft="30dp"
-        android:layout_alignParentRight="true"/>
+        android:layout_marginTop="30dp"/>
+
+
 
 </RelativeLayout>
