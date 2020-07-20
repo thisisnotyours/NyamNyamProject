@@ -1,21 +1,21 @@
 package com.suek.nyamnyam;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -44,7 +44,8 @@ public class VeganActivity extends AppCompatActivity {
 
         //CategoryAdapter 에서 보낸  데이터 가져오기/받아오기를 (VeganActivity 로)    ---> 데이터들은 FoodCategoryPageActivity.java 에 입력/저장(ex; items.add(new Item...)
         Intent intent= getIntent();
-        int foodBackground= intent.getIntExtra("food_bg", R.drawable.ic_hot);   //R.drawable.ic_hot = 여기에는 해당 이미지가 없을때 대체로 보여주는 이미지.
+        //int foodBackground= intent.getIntExtra("food_bg", R.drawable.ic_hot);   //R.drawable.ic_hot = 여기에는 해당 이미지가 없을때 대체로 보여주는 이미지.
+        String foodBackground= intent.getStringExtra("foodBackground");
         String categoryTitle= intent.getStringExtra("foodTitle");   //name 틀리지 않게 입력!!!!!!  - CategoryPageItems 와 같은이름
         String categorySub= intent.getStringExtra("foodSub");
         String categoryMsg= intent.getStringExtra("foodMsg");
@@ -55,8 +56,15 @@ public class VeganActivity extends AppCompatActivity {
         tv_sub= findViewById(R.id.tv_sub);
         tv_msg= findViewById(R.id.tv_msg);
 
-
-        linearLayout.setBackgroundResource(foodBackground);
+        //배경화면(LinearLayout)에 인터넷으로 포토Url 가져오기
+        Glide.with(this).load(foodBackground).into(new SimpleTarget<Drawable>() {
+            @Override
+            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    linearLayout.setBackground(resource);
+                }
+            }
+        });
         tv_title.setText(categoryTitle);
         tv_sub.setText(categorySub);
         tv_msg.setText(categoryMsg);

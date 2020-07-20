@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     startActivity(intent);
                     finish();
 
-                    //Log.i("aaa", account.getPhotoUrl().toString());
+                    //Log.i("photoUrl", account.getPhotoUrl().toString());
 
 
                 }else {

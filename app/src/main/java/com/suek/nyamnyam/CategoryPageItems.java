@@ -5,20 +5,20 @@ public class CategoryPageItems {
     //recycler_category_page.xml 의 items
 
     String civ;
-    int food_bg;
     String foodTitle;
     String foodSub;
     String foodMsg;
+    String foodBackground;
 
 
     public CategoryPageItems() {
     }
 
-    public CategoryPageItems(String civ, int food_bg, String foodTitle, String foodSub, String foodMsg) {
+    public CategoryPageItems(String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground) {
         this.civ = civ;
-        this.food_bg= food_bg;
         this.foodTitle = foodTitle;
         this.foodSub = foodSub;
-        this.foodMsg=foodMsg;
+        this.foodMsg = foodMsg;
+        this.foodBackground = foodBackground;
     }
 }

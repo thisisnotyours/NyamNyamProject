@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,10 +84,10 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
                     Toast.makeText(context, ""+tvFoodSub.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, VeganActivity.class);           //category page items 의 데이터를 VeganActivity 로 보냄
                     intent.putExtra("civ", items.get(getLayoutPosition()).civ);
-                    intent.putExtra("food_bg", items.get(getLayoutPosition()).food_bg);
                     intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
                     intent.putExtra("foodSub", items.get(getLayoutPosition()).foodSub);
                     intent.putExtra("foodMsg", items.get(getLayoutPosition()).foodMsg);
+                    intent.putExtra("foodBackground", items.get(getLayoutPosition()).foodBackground);
 
                     context.startActivity(intent);
                 }

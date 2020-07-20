@@ -42,8 +42,8 @@ public class AccessActivity extends AppCompatActivity {
         String profileUrl= intent.getStringExtra("profileUrl");  //받아온 프로필 이미지값
 
 
-        /*Log.i("aaa", nickName+"");
-        Log.i("bbb", profileUrl+"");*/
+        /*Log.i("nickName", nickName+"");
+        Log.i("photoUrl", profileUrl+"");*/
 
         tvNickname= findViewById(R.id.tv_nickname);
         tvNickname.setText(nickName);    //1. 닉네임- 텍스트뷰에 세팅
