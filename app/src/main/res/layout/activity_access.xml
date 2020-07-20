@@ -7,11 +7,10 @@
     tools:context=".LoginActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ"
+        android:id="@+id/civ_profile"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_person_white_24dp"
-        android:background="#706E71"
+        android:src="@drawable/ic_person_grey_24dp"
         android:layout_above="@id/tv_nickname"
         android:layout_centerHorizontal="true"/>
 
@@ -19,10 +18,27 @@
         android:id="@+id/tv_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nickname"
+        android:text="Your Name"
         android:textSize="20sp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_centerInParent="true"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember Me"
+        android:layout_below="@id/tv_nickname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTER"
+        android:layout_below="@id/checkbox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
 
 

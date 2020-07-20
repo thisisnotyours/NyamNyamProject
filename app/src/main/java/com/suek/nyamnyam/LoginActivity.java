@@ -5,9 +5,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -33,7 +35,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private static final int REQ_SIGN_GOOGLE= 100;  //구글 로그인했을때 결과코드
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,25 +42,34 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         //handler.sendEmptyMessageDelayed(0, 3000);
 
-        //사인버튼을 누르면 기본적으로 세팅되는 옵션들..
-        GoogleSignInOptions googleSignInOptions= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail().build();
+        //로그인이 적용이 되어있다면 메인화면으로 바로 전환
+        SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);
+        if(pref != null){
+            Intent intent= new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else {
+            //신규 사용자 가입 로그인
+            //사인버튼을 누르면 기본적으로 세팅되는 옵션들..
+            GoogleSignInOptions googleSignInOptions= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail().build();
 
-        googleApiClient= new GoogleApiClient.Builder(this).enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions).build();
+            googleApiClient= new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+                    .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions).build();
 
-        auth= FirebaseAuth.getInstance();    //파이어베이스 인증객체 초기화
+            auth= FirebaseAuth.getInstance();    //파이어베이스 인증객체 초기화
 
 
-        btn_google= findViewById(R.id.btn_google);
-        btn_google.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= Auth.GoogleSignInApi.getSignInIntent(googleApiClient);   //구글 인증 액티비티(구글이 만든 다른 화면으로)으로 이동
-                startActivityForResult(intent, REQ_SIGN_GOOGLE);
-            }
-        });
+            btn_google= findViewById(R.id.btn_google);
+            btn_google.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent= Auth.GoogleSignInApi.getSignInIntent(googleApiClient);   //구글 인증 액티비티(구글이 만든 다른 화면으로)으로 이동
+                    startActivityForResult(intent, REQ_SIGN_GOOGLE);
+                }
+            });
+        }
+
 
     }//onCreate..
 
@@ -90,7 +100,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     Intent intent= new Intent(getApplicationContext(), AccessActivity.class);
                     intent.putExtra("nickName", account.getDisplayName());        //구글에서 지정한 닉네임을 가져올수있음
                     intent.putExtra("profileUrl", String.valueOf( account.getPhotoUrl()));  //구글에서 지정한 프로필 사진을 가져올수있음- 특정자료형을 String 형태로 변환시키는 형태
+
                     startActivity(intent);
+                    finish();
+
+                    //Log.i("aaa", account.getPhotoUrl().toString());
+
 
                 }else {
                     Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
@@ -106,13 +121,5 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     }
 
-    /*Handler handler= new Handler(){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            Intent intent= new Intent(LoginActivity.this, AccessActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    };*/
 
 }//Login Activity..

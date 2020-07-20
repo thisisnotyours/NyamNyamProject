@@ -17,9 +17,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import org.w3c.dom.Text;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Drawer Navigation 어카운트 정보 가져오기???
+        /*Intent intent= getIntent();
+        String nickName= intent.getStringExtra("nickName");
+        String profileUrl= intent.getStringExtra("profileUrl");
+        TextView tv_nickName= navigationView.getHeaderView(1).findViewById(R.id.tv_name);
+        tv_nickName.setText(nickName);
+        CircleImageView civ_profileUrl=(CircleImageView) navigationView.getHeaderView(0).findViewById(R.id.civ_profile);
+        Glide.with(this).load(profileUrl).into()*/
+
 
 
         toolbar= findViewById(R.id.toolbar);
