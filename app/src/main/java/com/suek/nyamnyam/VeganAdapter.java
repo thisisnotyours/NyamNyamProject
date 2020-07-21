@@ -79,11 +79,14 @@ public class VeganAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, ""+tvTitle.getText(), Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(context, RecipeActivity.class);
+                    Intent intent= new Intent(context, RecipeActivity.class);                              //recycler vegan 데이터 Recipe activity 로 보내기
                     intent.putExtra("civFood", items.get(getLayoutPosition()).civFood);
                     intent.putExtra("tvTitle", items.get(getLayoutPosition()).tvTitle);
                     intent.putExtra("tvCategory", items.get(getLayoutPosition()).tvCategory);
                     intent.putExtra("tvSub", items.get(getLayoutPosition()).tvSub);
+
+                    intent.putExtra("tvIng",items.get(getLayoutPosition()).tvIng);
+                    intent.putExtra("tvStep", items.get(getLayoutPosition()).tvStep);
 
                     context.startActivity(intent);
                 }

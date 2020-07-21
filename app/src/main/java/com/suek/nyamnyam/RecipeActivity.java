@@ -18,10 +18,14 @@ public class RecipeActivity extends AppCompatActivity {
     ViewPager pager;
     TabRecipeAdapter recipeAdapter;
 
-    String civFood;
+    //Vegan 에서 받아온 데이터 참조변수로 만들기 --> 이 데이터를 보여주는 뷰는 HowtoCook 뷰임
+    String civFood;   //veganItem
     String foodTitle;
     String foodCategory;
     String foodSub;
+
+    String foodIng;
+    String foodStep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +56,15 @@ public class RecipeActivity extends AppCompatActivity {
 
 
 
+        //비건 Adapter 에서 받아온 데이터 위에서 String 으로 받기?
         Intent intent= getIntent();
         civFood= intent.getStringExtra("civFood");
         foodTitle= intent.getStringExtra("tvTitle");
         foodCategory= intent.getStringExtra("tvCategory");
         foodSub= intent.getStringExtra("tvSub");
+
+        foodIng=intent.getStringExtra("tvIng");
+        foodStep= intent.getStringExtra("tvStep");
 
         //Toast.makeText(this, ""+foodCategory, Toast.LENGTH_SHORT).show();
 

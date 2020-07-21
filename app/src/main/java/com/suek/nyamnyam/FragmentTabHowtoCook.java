@@ -21,10 +21,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class FragmentTabHowtoCook extends Fragment {
 
     //받아올 데이터들
-    CircleImageView civFood;
-    TextView tvCategory;
+    CircleImageView civFoodFile;
+    TextView tvCat;
     TextView tvTitile;
     TextView tvSub;
+    TextView tvIng;
+    TextView tvStep;
 
     ImageView ivHeadset;
     TextToSpeech textToSpeech;
@@ -37,17 +39,22 @@ public class FragmentTabHowtoCook extends Fragment {
 
 
         //받아올 데이터들 아이디 찾아주기
-        civFood= view.findViewById(R.id.civ_food);
-        tvCategory= view.findViewById(R.id.tv_food_category);
-        tvTitile= view.findViewById(R.id.tv_food_title);
-        tvSub= view.findViewById(R.id.tv_food_title_sub);
+        civFoodFile= view.findViewById(R.id.civ_food_file);
+        tvCat= view.findViewById(R.id.tv_cat);
+        tvTitile= view.findViewById(R.id.tv_title);
+        tvSub= view.findViewById(R.id.tv_sub);
+        tvIng= view.findViewById(R.id.tv_ing);
+        tvStep= view.findViewById(R.id.tv_step);
 
-        //액티비티에서 프레그먼트를 연결해주기 위해 RecipeActivity 를 get 해온다.
-        RecipeActivity recipeActivity= (RecipeActivity)getActivity();
-        Glide.with(this).load(recipeActivity.civFood).into(civFood);
-        tvCategory.setText(recipeActivity.foodCategory);
-        tvTitile.setText(recipeActivity.foodTitle);
-        tvSub.setText(recipeActivity.foodSub);
+        //vegan adapter 에서 recipe activity 로 보낸 데이터를
+        //howtocook 프래그먼트랑 연결해서 데이터를 받음
+        RecipeActivity recipeActivity= (RecipeActivity)getActivity();    //howToCook 프래그먼트가 RecipeActivity 의 능력을 가짐?- 연결
+        Glide.with(this).load(recipeActivity.civFood).into(civFoodFile);     //civFood <-- recipe activity 에서 받아온 데이터
+        tvCat.setText(recipeActivity.foodCategory);      //foodCategory <-- recipe activity 에서 받아온 데이터
+        tvTitile.setText(recipeActivity.foodTitle);      //foodTitle <-- recipe activity 에서 받아온 데이터
+        tvSub.setText(recipeActivity.foodSub);          //foodSub <-- recipe activity 에서 받아온 데이터
+        tvIng.setText(recipeActivity.foodIng);          //foodIng <-- recipe activity 에서 받아온 데이터
+        tvStep.setText(recipeActivity.foodStep);        //foodStep <-- recipe activity 에서 받아온 데이터
 
 
 

@@ -12,7 +12,7 @@
         android:textStyle="bold"
         android:textSize="24sp"
         android:textColor="#ffffffff"
-        android:layout_marginLeft="125dp"
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="15dp"/>
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/tv_food_category"
+                android:id="@+id/tv_cat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VEGAN"
@@ -50,48 +50,48 @@
                 android:layout_marginLeft="80dp"/>
 
             <TextView
-                android:id="@+id/tv_food_title"
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sanchae Bibimbap"
                 android:textColor="@android:color/black"
                 android:textSize="23sp"
                 android:textStyle="bold"
-                android:layout_below="@id/tv_food_category"
+                android:layout_below="@id/tv_cat"
                 android:layout_marginLeft="80dp"/>
             <TextView
-                android:id="@+id/tv_food_title_sub"
+                android:id="@+id/tv_sub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="산채 비빔밥"
-                android:layout_below="@id/tv_food_title"
+                android:layout_below="@id/tv_title"
                 android:layout_marginLeft="80dp"/>
             <ImageView
                 android:id="@+id/iv_headset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_headset_grey_40__dp"
-                android:layout_toRightOf="@id/tv_food_title"
+                android:layout_toRightOf="@id/tv_title"
                 android:layout_marginTop="135dp"
                 android:layout_marginLeft="10dp"/>
 
 
 
             <TextView
-                android:id="@+id/tv_ingredient"
+                android:id="@+id/tv_ingredient_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ingredient"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:layout_below="@id/tv_food_title_sub"
+                android:layout_below="@id/tv_sub"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="40dp"/>
             <TextView
-                android:id="@+id/tv_ingredient_msg"
+                android:id="@+id/tv_ing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_ingredient"
+                android:layout_below="@id/tv_ingredient_title"
                 android:text="dskfkslfkfkslfkdlfkm, dkfklsfkdflsk, sdfkldsfklf, sefkseke"
                 android:inputType="textMultiLine"
                 android:layout_marginTop="10dp"
@@ -100,10 +100,10 @@
                 android:id="@+id/tv_view_line"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/tv_ingredient"
+                android:layout_below="@id/tv_ingredient_title"
                 android:layout_marginTop="70dp"/>
             <TextView
-                android:id="@+id/tv_step"
+                android:id="@+id/tv_step_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Step"
@@ -113,6 +113,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"/>
             <TextView
+                android:id="@+id/tv_step"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
@@ -124,7 +125,7 @@
          sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
          sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh"
                 android:inputType="textMultiLine"
-                android:layout_below="@id/tv_step"
+                android:layout_below="@id/tv_step_title"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="40dp"/>
 
@@ -138,11 +139,11 @@
 
     <!--circleiamgeview 는 Relativelayout(겹칠수있음) 안에 있음-->
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_food"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/civ_food_file"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bibimbap"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="70dp"/>
 
 </RelativeLayout>

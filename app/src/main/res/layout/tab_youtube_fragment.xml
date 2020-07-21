@@ -1,16 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#759AF8">
 
-<!--Youtube 보여주는 페이지 = 인터넷 & Youtube API 필요-->
 
-    <!--<fragment
-        android:id="@+id/frag_youtube"
+    <TextView
+        android:id="@+id/tv_suggested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUGGESTED"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/tv_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIDEO"
+
+        android:textSize="24sp"
+        android:textColor="#ffffffff"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tv_suggested"
+        android:layout_marginLeft="8dp"/>
+
+
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"/>-->
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/recipe_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_food_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FOOD TITLE"
+                android:textColor="@android:color/black"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="120dp"/>
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="           Search more recipes          "
+                android:layout_below="@id/tv_food_title"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="120dp"/>
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search_grey_40dp"
+                android:layout_below="@id/tv_food_title"
+                android:layout_toRightOf="@id/et_search"
+                android:layout_marginTop="120dp"/>
 
 
 
-</LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+    <!--circleiamgeview 는 Relativelayout(겹칠수있음) 안에 있음-->
+    <kr.co.prnd.YouTubePlayerView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:videoId="XyPEZpEo4qc"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

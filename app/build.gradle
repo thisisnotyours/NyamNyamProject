@@ -65,6 +65,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'    //글라이드 이미지 로딩
 
 
+    //youtubePlayerView
+    implementation 'kr.co.prnd:youtube-player-view:1.3.0'
+
+
 
 
 

@@ -114,13 +114,13 @@ public class AccessActivity extends AppCompatActivity {
 
 
 
-    Handler handler= new Handler(){
+    /*Handler handler= new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             Intent intent= new Intent(AccessActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
-    };
+    };*/
 
 }//Access Activity..
