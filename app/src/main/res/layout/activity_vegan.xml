@@ -21,7 +21,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VEGITARIAN"
+            android:text="VEGAN"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             android:textSize="30sp"

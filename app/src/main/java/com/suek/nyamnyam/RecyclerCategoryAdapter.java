@@ -45,7 +45,7 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
         VH vh= (VH) holder;
         Item item= items.get(position);
         Glide.with(context).load(item.imgUrl).into(vh.civ);
-        vh.tvName.setText(item.name);
+        vh.tvName.setText(item.foodTitle);
 
     }
 
@@ -84,8 +84,11 @@ public class RecyclerCategoryAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     Intent intent= new Intent(context, VeganActivity.class);
-                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).name);
                     intent.putExtra("civ", items.get(getLayoutPosition()).imgUrl);
+                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
+                    intent.putExtra("foodSub", items.get(getLayoutPosition()).foodSub);
+                    intent.putExtra("foodMsg", items.get(getLayoutPosition()).foodMsg);
+                    intent.putExtra("foodBackground", items.get(getLayoutPosition()).foodBackground);
                     context.startActivity(intent);
                 }
             });

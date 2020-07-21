@@ -10,8 +10,8 @@
         android:layout_height="130dp"
         android:background="@drawable/background2"
         android:backgroundTint="#88ffffff"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="2dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/civ"
