@@ -11,7 +11,9 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -20,7 +22,15 @@ import com.bumptech.glide.request.transition.Transition;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class VeganActivity extends AppCompatActivity {
+
+    //서버에 저장되어있느 모든 데이터
+    ArrayList<VeganItem> allItems= new ArrayList<>();   //VeganItem 공유
 
     //recyclerview 의 데이터
     ArrayList<VeganItem> veganItems= new ArrayList<>();
@@ -51,6 +61,9 @@ public class VeganActivity extends AppCompatActivity {
         String categoryMsg= intent.getStringExtra("foodMsg");
 
 
+        //서버에서 데이터들 가져오는 메소드
+        loadDataFromServer( categoryTitle );  //위의 String categoryTitle 이 지역변수여서(전역으로 만들어줄 수도 잇지만) 파라미터로 전달
+
         linearLayout= findViewById(R.id.linear_foodBackground);
         tv_title= findViewById(R.id.tv_title);
         tv_sub= findViewById(R.id.tv_sub);
@@ -69,41 +82,9 @@ public class VeganActivity extends AppCompatActivity {
         tv_sub.setText(categorySub);
         tv_msg.setText(categoryMsg);
 
-
-
-
-//recyclerview items
-        if(categoryTitle.equals("VEGAN")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "VEGAN", "산채 비빔밥"));
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "VEGAN", "산채 비빔밥"));
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "VEGAN", "산채 비빔밥"));
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "VEGAN", "산채 비빔밥"));
-        }else if(categoryTitle.equals("SOUP")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "SOUP", "산채 비빔밥"));
-        }else if(categoryTitle.equals("RICE")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "RICE", "산채 비빔밥"));
-        }else if(categoryTitle.equals("MEAT")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "MEAT", "산채 비빔밥"));
-        }else if(categoryTitle.equals("NOODLE")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "NOODLE", "산채 비빔밥"));
-        }else if(categoryTitle.equals("VEGETABLES")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "VEGETABLES", "산채 비빔밥"));
-        }else if(categoryTitle.equals("DESSERT")){
-            veganItems.add(new VeganItem("https://www.chungjungone.com/upload/knowhow/table/20170715_103952082_54152.jpg", "Sanchae Bibmbap", "DESSERT", "산채 비빔밥"));
-        }else if(categoryTitle.equals("PORRIDGE")){
-
-        }else if(categoryTitle.equals("SPECIAL")){
-
-        }else if(categoryTitle.equals("PANCAKE")){
-
-        }else if(categoryTitle.equals("STREET FOOD")){
-
-        }
-
         recyclerView= findViewById(R.id.recycler);
         veganAdapter= new VeganAdapter(this, veganItems);
         recyclerView.setAdapter(veganAdapter);
-
 
 
 
@@ -130,7 +111,6 @@ public class VeganActivity extends AppCompatActivity {
             }
         });
 
-
     }//onCreate
 
 
@@ -138,4 +118,37 @@ public class VeganActivity extends AppCompatActivity {
 
 
 
-}
+    void loadDataFromServer( String categoryTitle ){
+        Retrofit retrofit= RetrofitHelper_HowtoCook.getInstance();
+        RetrofitService_HowtoCook retrofitService= retrofit.create(RetrofitService_HowtoCook.class);
+        Call<ArrayList<VeganItem>> call= retrofitService.loadDataFromHowToCook();
+        call.enqueue(new Callback<ArrayList<VeganItem>>() {
+            @Override
+            public void onResponse(Call<ArrayList<VeganItem>> call, Response<ArrayList<VeganItem>> response) {
+
+                allItems= response.body();
+
+                //Toast.makeText(VeganActivity.this, allItems.size()+"", Toast.LENGTH_SHORT).show();  //아이템에 몇개의 데이턱가 있는지 확인?
+
+                for (VeganItem item : allItems){
+                    if(item.cat.equalsIgnoreCase(categoryTitle)){
+                        veganItems.add(item);
+                        veganAdapter.notifyItemChanged(allItems.size()-1);
+                    }else {
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<VeganItem>> call, Throwable t) {   //실패했을때 돌아오는 t
+                Toast.makeText(VeganActivity.this, "Can't load! :("+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }//loadDataFromServer
+
+
+
+
+}//Vegan Activity

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MyPostActivity"></activity>
+        <activity android:name=".MyPostActivity" />
         <activity android:name=".BoardActivity" />
         <activity android:name=".EditPostActivity" />
         <activity android:name=".FoodCultureActivity" />
@@ -34,8 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LaunchActivity" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

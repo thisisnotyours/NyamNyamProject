@@ -101,15 +101,13 @@ public class FragmentTab1Food extends Fragment {
 
 
         //Food Tab Fragment 에서 보여지는 추천레시피 recyclerview
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
-        recommendedItems.add(new RecommendedItems(R.drawable.gametitle_09, "Gimbab"));
+        recommendedItems.add(new RecommendedItems("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "Gimbab"));
+        recommendedItems.add(new RecommendedItems("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "Gimbab"));
+        recommendedItems.add(new RecommendedItems("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "Gimbab"));
+        recommendedItems.add(new RecommendedItems("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "Gimbab"));
+        recommendedItems.add(new RecommendedItems("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "Gimbab"));
+        recommendedItems.add(new RecommendedItems("https://images.happycow.net/venues/1024/14/53/hcmp145394_726578.jpeg", "Gimbab"));
+
 
         recommendedRecyclerView= view.findViewById(R.id.recycler_recommended);
         recommendedAdapter= new RecommendedAdapter(getActivity(), recommendedItems);
@@ -121,7 +119,7 @@ public class FragmentTab1Food extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getContext(), FoodCultureActivity.class);
-                intent.putExtra("image", "korean food culture");   //value 는 무슨 역할????????
+                //intent.putExtra("image", "korean food culture");   //value 는 무슨 역할????????
                 startActivity(intent);
             }
         });

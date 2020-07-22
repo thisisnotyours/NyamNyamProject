@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class TabRecipeAdapter extends FragmentPagerAdapter {
     Fragment[] fragments= new Fragment[2];
-    String[] tabTexts= new String[]{"HOW TO COOK", "SUGGESTED VIDEO"};
 
 
 
@@ -29,9 +28,5 @@ public class TabRecipeAdapter extends FragmentPagerAdapter {
         return fragments.length;
     }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return tabTexts[position];
-    }
+
 }

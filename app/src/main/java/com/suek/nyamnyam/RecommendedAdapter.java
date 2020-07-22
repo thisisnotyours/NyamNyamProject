@@ -1,6 +1,7 @@
 package com.suek.nyamnyam;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -36,8 +39,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
         RecommendedItems recommendedItems= items.get(position);
-        vh.tvName.setText(recommendedItems.tvName);
-        vh.iv.setImageResource(recommendedItems.img);
+        vh.foodTitle.setText(recommendedItems.foodtTitle);
+        Glide.with(context).load(recommendedItems.iv).into(vh.iv);
     }
 
     @Override
@@ -49,15 +52,29 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
 
     class VH extends RecyclerView.ViewHolder{
         ImageView iv;
-        TextView tvName;
+        TextView foodTitle;
 
         public VH(@NonNull View itemView) {
             super(itemView);
 
             this.iv= itemView.findViewById(R.id.iv);
-            this.tvName= itemView.findViewById(R.id.tv_name);
-        }
-    }
+            this.foodTitle= itemView.findViewById(R.id.food_title);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent= new Intent(context, RecipeActivity.class);
+                    intent.putExtra("foodIv", items.get(getLayoutPosition()).iv);
+                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodtTitle);
+
+                    context.startActivity(intent);
+                }
+            });
+
+
+        }//VH
+    }//Recyclerview.ViewHolder
 
 
 }//RecommendedAdapter..

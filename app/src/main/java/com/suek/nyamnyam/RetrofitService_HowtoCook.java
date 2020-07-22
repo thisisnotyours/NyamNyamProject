@@ -8,5 +8,5 @@ import retrofit2.http.GET;
 public interface RetrofitService_HowtoCook {
 
     @GET("/HowToCook/load.php")
-    Call<ArrayList<HowToCookItem>> loadDataFromHowToCook();
+    Call<ArrayList<VeganItem>> loadDataFromHowToCook();
 }

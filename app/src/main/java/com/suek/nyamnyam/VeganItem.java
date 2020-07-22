@@ -4,25 +4,24 @@ public class VeganItem {
 
     //recycler
 
-    String civFood;
-    String tvTitle;
-    String tvCategory;
-    String tvSub;
+    String file;  //배경음식화면
+    String cat;
+    String title;
+    String sub;
 
-    String tvIng;
-    String tvStep;
+    String ing;
+    String step;
 
     public VeganItem() {
     }
 
-    public VeganItem(String civFood, String tvTitle, String tvCategory, String tvSub, String tvIng, String tvStep) {
-        this.civFood = civFood;
-        this.tvTitle = tvTitle;
-        this.tvCategory = tvCategory;
-        this.tvSub = tvSub;
-
-        this.tvIng = tvIng;
-        this.tvStep = tvStep;
+    public VeganItem(String file, String cat, String title, String sub, String ing, String step) {
+        this.file = file;
+        this.cat = cat;
+        this.title = title;
+        this.sub = sub;
+        this.ing = ing;
+        this.step = step;
     }
 }
 

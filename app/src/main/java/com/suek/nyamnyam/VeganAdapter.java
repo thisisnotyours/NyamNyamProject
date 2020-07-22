@@ -40,10 +40,10 @@ public class VeganAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH) holder;
         VeganItem veganItem= items.get(position);
-        Glide.with(context).load(veganItem.civFood).into(vh.civ);
-        vh.tvTitle.setText(veganItem.tvTitle);
-        vh.tvCategory.setText(veganItem.tvCategory);
-        vh.tvSub.setText(veganItem.tvSub);
+        Glide.with(context).load(veganItem.file).into(vh.civ);
+        vh.tvTitle.setText(veganItem.title);
+        vh.tvCategory.setText(veganItem.cat);
+        vh.tvSub.setText(veganItem.sub);
 
     }
 
@@ -80,13 +80,13 @@ public class VeganAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     Toast.makeText(context, ""+tvTitle.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(context, RecipeActivity.class);                              //recycler vegan 데이터 Recipe activity 로 보내기
-                    intent.putExtra("civFood", items.get(getLayoutPosition()).civFood);
-                    intent.putExtra("tvTitle", items.get(getLayoutPosition()).tvTitle);
-                    intent.putExtra("tvCategory", items.get(getLayoutPosition()).tvCategory);
-                    intent.putExtra("tvSub", items.get(getLayoutPosition()).tvSub);
+                    intent.putExtra("civFood", items.get(getLayoutPosition()).file);
+                    intent.putExtra("tvTitle", items.get(getLayoutPosition()).title);
+                    intent.putExtra("tvCategory", items.get(getLayoutPosition()).cat);
+                    intent.putExtra("tvSub", items.get(getLayoutPosition()).sub);
 
-                    intent.putExtra("tvIng",items.get(getLayoutPosition()).tvIng);
-                    intent.putExtra("tvStep", items.get(getLayoutPosition()).tvStep);
+                    intent.putExtra("tvIng",items.get(getLayoutPosition()).ing);
+                    intent.putExtra("tvStep", items.get(getLayoutPosition()).step);
 
                     context.startActivity(intent);
                 }

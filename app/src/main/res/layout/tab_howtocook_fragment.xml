@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="#759AF8">
 
     <TextView
@@ -28,122 +29,124 @@
 
 
 
+
     <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="200dp"
         android:background="@drawable/recipe_background">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tv_cat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VEGAN"
-                android:textStyle="bold"
-                android:textColor="#38A13C"
-                android:padding="4dp"
-                android:background="@drawable/background3"
-                android:layout_marginTop="110dp"
-                android:layout_marginLeft="80dp"/>
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sanchae Bibimbap"
-                android:textColor="@android:color/black"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                android:layout_below="@id/tv_cat"
-                android:layout_marginLeft="80dp"/>
-            <TextView
-                android:id="@+id/tv_sub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="산채 비빔밥"
-                android:layout_below="@id/tv_title"
-                android:layout_marginLeft="80dp"/>
-            <ImageView
-                android:id="@+id/iv_headset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_headset_grey_40__dp"
-                android:layout_toRightOf="@id/tv_title"
-                android:layout_marginTop="135dp"
-                android:layout_marginLeft="10dp"/>
-
-
-
-            <TextView
-                android:id="@+id/tv_ingredient_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ingredient"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_below="@id/tv_sub"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="40dp"/>
-            <TextView
-                android:id="@+id/tv_ing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_ingredient_title"
-                android:text="dskfkslfkfkslfkdlfkm, dkfklsfkdflsk, sdfkldsfklf, sefkseke"
-                android:inputType="textMultiLine"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"/>
-            <View
-                android:id="@+id/tv_view_line"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/tv_ingredient_title"
-                android:layout_marginTop="70dp"/>
-            <TextView
-                android:id="@+id/tv_step_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Step"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:layout_below="@id/tv_view_line"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"/>
-            <TextView
-                android:id="@+id/tv_step"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh sdkfksjfkkldsjf lskfjlkjsdkfjlsdf  dsjflkdsjflkdjfklsfj  skdfjldkjfksdf sldfjksd flkdsjflkjf ksdjfljlk
-         sldkjflsdkjfksdjfkdslfdlsfldkfjlkds djflskdjfk sdsjflskjdkfjslfdkf  sdkjfhkjdshfjdkshfkjds jdhfksjdfhksfjhksjdfhdjhfshh"
-                android:inputType="textMultiLine"
-                android:layout_below="@id/tv_step_title"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_cat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VEGAN"
+                    android:textStyle="bold"
+                    android:textColor="#38A13C"
+                    android:padding="4dp"
+                    android:background="@drawable/background3"
+                    android:layout_marginTop="110dp"
+                    android:layout_marginLeft="80dp"/>
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sanchae Bibimbap"
+                    android:textColor="@android:color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/tv_cat"
+                    android:layout_marginLeft="80dp"/>
+                <TextView
+                    android:id="@+id/tv_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="산채 비빔밥"
+                    android:layout_below="@id/tv_title"
+                    android:layout_marginLeft="80dp"/>
+                <ImageView
+                    android:id="@+id/iv_headset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_headset_grey_40__dp"
+                    android:layout_toRightOf="@id/tv_title"
+                    android:layout_marginTop="135dp"
+                    android:layout_marginLeft="10dp"/>
+            </RelativeLayout>
 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="30dp">
+                <TextView
+                    android:id="@+id/tv_ingredient_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INGREDIENT"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/tv_ing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sfjdkfljskdflsfjdkfljskdfl"
+                    android:inputType="textMultiLine"
+                    android:layout_below="@id/tv_ingredient_title"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="30dp">
+                <TextView
+                    android:id="@+id/tv_step_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STEP"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/tv_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="dfjsdlfkdf"
+                    android:inputType="textMultiLine"
+                    android:layout_below="@id/tv_step_title"/>
+            </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
 
 
 
 
-    <!--circleiamgeview 는 Relativelayout(겹칠수있음) 안에 있음-->
+
+
+
+
+
+
+
+
+
+
+
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_food_file"
+        android:id="@+id/civ_food"
         android:layout_width="220dp"
         android:layout_height="220dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bibimbap"
         android:layout_marginTop="70dp"/>
-
 </RelativeLayout>
