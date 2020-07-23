@@ -2,6 +2,7 @@ package com.suek.nyamnyam;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,9 @@ public class VeganAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH) holder;
         VeganItem veganItem= items.get(position);
-        Glide.with(context).load(veganItem.file).into(vh.civ);
+        String imgUrl= "http://suhyun2963.dothome.co.kr/HowToCook/"+veganItem.file;
+        Log.i("img", imgUrl);
+        Glide.with(context).load(imgUrl).into(vh.civ);
         vh.tvTitle.setText(veganItem.title);
         vh.tvCategory.setText(veganItem.cat);
         vh.tvSub.setText(veganItem.sub);

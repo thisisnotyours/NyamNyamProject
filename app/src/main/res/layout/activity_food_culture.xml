@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#759AF8">
 
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KOREAN"
+        android:textSize="24sp"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"/>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FOOD CULTRUE"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#ffffffff"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="30dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="120dp"/>   <!--외부 데이터 가져올지 생각해보고 정하기...-->
+        android:layout_centerInParent="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@id/tv2" />   <!--외부 데이터 가져올지 생각해보고 정하기...-->
 
-</LinearLayout>
+</RelativeLayout>

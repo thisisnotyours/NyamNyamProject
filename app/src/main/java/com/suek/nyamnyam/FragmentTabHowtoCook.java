@@ -59,7 +59,9 @@ public class FragmentTabHowtoCook extends Fragment {
         //vegan adapter 에서 recipe activity 로 보낸 데이터를
         //howtocook 프래그먼트랑 연결해서 데이터를 받음
         RecipeActivity recipeActivity= (RecipeActivity)getActivity();    //howToCook 프래그먼트가 RecipeActivity 의 능력을 가짐?- 연결
-        Glide.with(this).load(recipeActivity.civFood).into(civFoodFile);     //civFood <-- recipe activity 에서 받아온 데이터
+        String imgUrl= "http://suhyun2963.dothome.co.kr/HowToCook/"+recipeActivity.civFood;
+        Log.i("img", imgUrl);
+        Glide.with(this).load(imgUrl).into(civFoodFile);     //civFood <-- recipe activity 에서 받아온 데이터
         tvCat.setText(recipeActivity.foodCategory);      //foodCategory <-- recipe activity 에서 받아온 데이터
         tvTitle.setText(recipeActivity.foodTitle);      //foodTitle <-- recipe activity 에서 받아온 데이터
         tvSub.setText(recipeActivity.foodSub);

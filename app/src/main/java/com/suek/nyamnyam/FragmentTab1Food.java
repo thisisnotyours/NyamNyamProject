@@ -119,7 +119,7 @@ public class FragmentTab1Food extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getContext(), FoodCultureActivity.class);
-                //intent.putExtra("image", "korean food culture");   //value 는 무슨 역할????????
+                //intent.putExtra 해주기
                 startActivity(intent);
             }
         });
