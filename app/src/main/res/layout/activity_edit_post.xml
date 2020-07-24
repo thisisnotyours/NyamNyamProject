@@ -19,23 +19,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/civ"
+            android:id="@+id/civ_profile"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_person_white_24dp"
             app:civ_border_width="2dp"
-            app:civ_border_color="#9CA1A1"
+            app:civ_border_color="#759AF8"
+            android:src="@drawable/ic_person_white_24dp"
             app:civ_circle_background_color="#9CA1A1"
             android:layout_marginTop="20dp"/>
         <TextView
-            android:id="@+id/user_id"
+            android:id="@+id/tv_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User ID"
+            android:text="nickName"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="#868888"
-            android:layout_toRightOf="@id/civ"
+            android:textColor="@android:color/black"
+            android:layout_toRightOf="@id/civ_profile"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="10dp"/>
         <ImageView
@@ -63,7 +63,7 @@
             android:id="@+id/et_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/civ"
+            android:layout_below="@id/civ_profile"
             android:ems="10"
             android:inputType="text"
             android:hint="Write a title..."

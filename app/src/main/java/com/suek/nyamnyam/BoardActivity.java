@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -24,8 +25,6 @@ public class BoardActivity extends AppCompatActivity {
     ArrayList<BoardItem> boardItems= new ArrayList<>();
     SwipeRefreshLayout refreshLayout;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +40,7 @@ public class BoardActivity extends AppCompatActivity {
             public void onRefresh() {
                 loadData();
                 refreshLayout.setRefreshing(false);
+
             }
         });
     }//onCreate

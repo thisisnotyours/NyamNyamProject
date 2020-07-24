@@ -9,6 +9,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -26,6 +28,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -36,6 +39,9 @@ import retrofit2.Retrofit;
 
 //Post 글 작성하기 Activity
 public class EditPostActivity extends AppCompatActivity {
+    // 로그인 정보
+    CircleImageView civPofile;
+    TextView tvNickName;
 
     EditText etTitle;
     EditText etMsg;
@@ -47,6 +53,16 @@ public class EditPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_post);
 
+        // 로그인 정보 불러들이기
+        civPofile= findViewById(R.id.civ_profile);
+        tvNickName= findViewById(R.id.tv_nickName);
+        SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);
+        String profileUrl= pref.getString("profileUrl", "");
+        String nickName= pref.getString("nickName", "");
+        Glide.with(this).load(profileUrl).into(civPofile);
+        tvNickName.setText(nickName);
+
+        //글작성
         etTitle= findViewById(R.id.et_title);
         etMsg= findViewById(R.id.et_msg);
         iv= findViewById(R.id.iv);

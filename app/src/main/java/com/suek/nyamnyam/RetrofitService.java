@@ -20,5 +20,7 @@ public interface RetrofitService {
     @GET("Retrofit_Board_NyamNyam/loadDB.php")
     Call<ArrayList<BoardItem>> loadDataFromBoard();
 
+    //@POST()
+
 }
 

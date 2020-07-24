@@ -1,6 +1,7 @@
 package com.suek.nyamnyam;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyPostAdapter extends RecyclerView.Adapter {
 
@@ -54,6 +57,10 @@ public class MyPostAdapter extends RecyclerView.Adapter {
 
 
     class VH extends RecyclerView.ViewHolder{
+        //로그인 정보
+        CircleImageView civProfile;
+        TextView tvNickName;
+
         ImageView iv;
         TextView tvTitle;
         TextView tvMsg;
@@ -63,6 +70,17 @@ public class MyPostAdapter extends RecyclerView.Adapter {
             iv= itemView.findViewById(R.id.iv);
             tvTitle= itemView.findViewById(R.id.tv_title);
             tvMsg= itemView.findViewById(R.id.tv_msg);
+
+            civProfile= itemView.findViewById(R.id.civ_profile);
+            tvNickName= itemView.findViewById(R.id.tv_nickName);
+
+            // 로그인 정보 불러들이기
+            SharedPreferences pref= context.getSharedPreferences("Data", Context.MODE_PRIVATE);
+            String nickName= pref.getString("nickName", "");
+            String profileUrl= pref.getString("profileUrl", "");
+            tvNickName.setText(nickName);
+            Glide.with(context).load(profileUrl).into(civProfile);
+
         }
     }
 }

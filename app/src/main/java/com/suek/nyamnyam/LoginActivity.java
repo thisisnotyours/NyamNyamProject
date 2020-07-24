@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         //로그인이 적용이 되어있다면 메인화면으로 바로 전환
         SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);
         String nickName= pref.getString("nickName", "");
-        if(!nickName.equals("")){
+        if(!nickName.equals("")){    //nickName 이 " "가 아니면 == nickName 이 없으면
             Intent intent= new Intent(this, MainActivity.class);
             startActivity(intent);
         }else {
@@ -100,11 +100,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(), AccessActivity.class);
                     intent.putExtra("email", account.getEmail());
-                    G.userEmail= account.getEmail();
-                    intent.putExtra("nickName", account.getDisplayName());        //구글에서 지정한 닉네임을 가져올수있음
-                    G.userName= account.getDisplayName();       //로그인하고 G에 저장
+                    intent.putExtra("nickName", account.getDisplayName());                  //구글에서 지정한 닉네임을 가져올수있음
                     intent.putExtra("profileUrl", String.valueOf( account.getPhotoUrl()));  //구글에서 지정한 프로필 사진을 가져올수있음- 특정자료형을 String 형태로 변환시키는 형태
-                    G.profileUrl= account.getPhotoUrl().toString();
+                    //G.profileUrl= account.getPhotoUrl().toString();  //로그인하고 G에 저장
                     startActivity(intent);
                     finish();
 
