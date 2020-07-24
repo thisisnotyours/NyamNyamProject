@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -43,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_my_blog, tv_board, tv_post;
     Animation fab_open, fab_close, fab_clock, fab_anticlock;
 
+    // 로그인 정보 불러들이는 참조변수
+    TextView headerEmail, headerNickname;
+    CircleImageView headerProfile;
+
+
+
     // Draggable FAB
     float startX;
     float startRawX;
@@ -50,28 +57,14 @@ public class MainActivity extends AppCompatActivity {
     int lastAction;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Drawer Navigation 어카운트 정보 가져오기???
-        /*Intent intent= getIntent();
-        String nickName= intent.getStringExtra("nickName");
-        String profileUrl= intent.getStringExtra("profileUrl");
-        TextView tv_nickName= navigationView.getHeaderView(1).findViewById(R.id.tv_name);
-        tv_nickName.setText(nickName);
-        CircleImageView civ_profileUrl=(CircleImageView) navigationView.getHeaderView(0).findViewById(R.id.civ_profile);
-        Glide.with(this).load(profileUrl).into()*/
-
-
-
         toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
        //getSupportActionBar().setLogo(R.drawable.gametitle_09);
-
-
 
 
         tabLayout= findViewById(R.id.tab_layout);
@@ -108,8 +101,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // 네비게이션 아이템 리스너
+
         navigationView= findViewById(R.id.nav);
+        // 불러올 로그인정보에 쓸 데이터를 넣어줄 아이디 찾아주기
+        headerEmail= navigationView.getHeaderView(0).findViewById(R.id.tv_email);
+        headerNickname= navigationView.getHeaderView(0).findViewById(R.id.tv_name);
+        headerProfile= navigationView.getHeaderView(0).findViewById(R.id.civ_profile);
+
+        // 로그인정보 불러들여오기
+        SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);
+        String nickName= pref.getString("nickName", "");
+        String email= pref.getString("email", "");
+        String profileUrl= pref.getString("profileUrl", "");
+        headerNickname.setText(nickName);
+        headerEmail.setText(email);
+        Glide.with(this).load(profileUrl).into(headerProfile);
+
+        // 네비게이션 아이템 리스너
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -254,4 +262,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }//onCreate..
+
 }//MainActivity..

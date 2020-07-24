@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AccessActivity extends AppCompatActivity {
 
-    private TextView tvNickname;
+    private TextView tvEmail;
+    private EditText etNickname;
     private CircleImageView civProfile;
     private CheckBox checkBox;
     private Button loginBtn;
@@ -39,14 +41,18 @@ public class AccessActivity extends AppCompatActivity {
 
         Intent intent= getIntent();
         String nickName= intent.getStringExtra("nickName");    //받아온 닉네임값
+        String email= intent.getStringExtra("email");          //받아온 닉네임값
         String profileUrl= intent.getStringExtra("profileUrl");  //받아온 프로필 이미지값
 
 
         /*Log.i("nickName", nickName+"");
         Log.i("photoUrl", profileUrl+"");*/
 
-        tvNickname= findViewById(R.id.tv_nickname);
-        tvNickname.setText(nickName);    //1. 닉네임- 텍스트뷰에 세팅
+        tvEmail= findViewById(R.id.tv_user_email);
+        tvEmail.setText(email);
+
+        etNickname= findViewById(R.id.et_nickname);
+        etNickname.setText(nickName);    //1. 닉네임- 텍스트뷰에 세팅
 
         civProfile= findViewById(R.id.civ_profile);
         Glide.with(this).load(profileUrl).into(civProfile);   //2. 포토Url- Civ 뷰에 세팅
@@ -54,34 +60,18 @@ public class AccessActivity extends AppCompatActivity {
 
 
         checkBox= findViewById(R.id.checkbox);
-        /*checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(checkBox.isChecked()){
-                Toast.makeText(AccessActivity.this, "Remember me", Toast.LENGTH_SHORT).show();
-
-                String nickName= tvNickname.getText().toString();
-
-                SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);
-                SharedPreferences.Editor editor= pref.edit();   //문서저장 시작
-                editor.putString("nickName", nickName);
-                editor.commit();
-            } else {
-                Toast.makeText(AccessActivity.this, "Don't remember me", Toast.LENGTH_SHORT).show();
-            }
-        }
-        });*/
 
         loginBtn= findViewById(R.id.btn_login);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkBox.isChecked()){
-                    SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);
-                    SharedPreferences.Editor editor= pref.edit();
+                    SharedPreferences pref= getSharedPreferences("Data", MODE_PRIVATE);  //문서에 데이터를 저장해주는 객체 소환
+                    SharedPreferences.Editor editor= pref.edit();    //문서저장 시작..
                     editor.putString("nickName", nickName);
+                    editor.putString("email",email);
                     editor.putString("profileUrl", profileUrl);
-                    editor.commit();
+                    editor.commit();     //작업완료
 
                     Intent intent1= new Intent(AccessActivity.this, MainActivity.class);
                     startActivity(intent1);
