@@ -2,6 +2,7 @@ package com.suek.nyamnyam;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,9 @@ public class FoodCultureAdapter extends RecyclerView.Adapter {
         VH vh= (VH)holder;
         FoodCultureItem cultureItem= items.get(position);
         vh.tvTitle.setText(cultureItem.title);
-        Glide.with(context).load(cultureItem.file).into(vh.iv);
+        String imgUrl= "http://suhyun2963.dothome.co.kr/FoodCulture/"+cultureItem.file;
+        Log.i("img",imgUrl);
+        Glide.with(context).load(imgUrl).into(vh.iv);
     }
 
     @Override

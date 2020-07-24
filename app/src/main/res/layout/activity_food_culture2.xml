@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#759AF8"
+    android:background="@drawable/bibimbap"
+    android:backgroundTint="#88000000"
+    android:backgroundTintMode="src_over"
     tools:context=".FoodCulture2Activity">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/recipe_background"
         android:layout_marginTop="70dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,8 +24,8 @@
                 android:layout_height="wrap_content"
                 android:text="Bapsang Yejeol"
                 android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textColor="#ffffffff"
                 android:layout_gravity="center_horizontal"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="40dp" />
@@ -33,27 +34,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="밥상예절"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:layout_below="@id/tv_title"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"/>
             <ImageView
+                android:id="@+id/iv_headset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_headset_grey_40__dp"
+                android:src="@drawable/ic_headset_blue_40dp"
                 android:layout_toRightOf="@id/tv_title"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"/>
             <ImageView
                 android:id="@+id/iv"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
                 android:layout_below="@id/tv_sub"
+                android:elevation="5dp"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/bibimbap"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="15dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Source"
+                android:text="Source :"
+                android:textColor="#38A13C"
+                android:textStyle="bold"
                 android:layout_toLeftOf="@id/tv_source"
                 android:layout_below="@id/iv"/>
             <TextView
@@ -67,21 +76,21 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/iv"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="30dp"/>
             <TextView
                 android:id="@+id/tv_msg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                android:text="Whmake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                 android:inputType="textMultiLine"
+                android:textColor="#ffffffff"
+                android:textSize="17sp"
                 android:layout_below="@id/iv"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_centerHorizontal="true"/>
         </RelativeLayout>
 
     </ScrollView>

@@ -99,8 +99,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(), AccessActivity.class);
                     intent.putExtra("nickName", account.getDisplayName());        //구글에서 지정한 닉네임을 가져올수있음
+                    //G.userName= account.getDisplayName();
                     intent.putExtra("profileUrl", String.valueOf( account.getPhotoUrl()));  //구글에서 지정한 프로필 사진을 가져올수있음- 특정자료형을 String 형태로 변환시키는 형태
-
+                    //G.profileUrl= account.getDisplayName();
                     startActivity(intent);
                     finish();
 

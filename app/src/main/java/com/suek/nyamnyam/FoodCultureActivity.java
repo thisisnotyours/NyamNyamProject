@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,9 +22,6 @@ import retrofit2.Retrofit;
 
 public class FoodCultureActivity extends AppCompatActivity {
 
-    //서버에 저장되어있는 모든 아이템들..
-    //ArrayList<FoodCultureItem> allItems= new ArrayList<>();
-
     ArrayList<FoodCultureItem> foodCultureItems= new ArrayList<>();
     RecyclerView recyclerView;
     FoodCultureAdapter adapter;
@@ -33,7 +31,7 @@ public class FoodCultureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_culture);
 
-        //foodCultureItems.add(new FoodCultureItem("https://www.90daykorean.com/wp-content/uploads/2016/07/Korean-Table-Manners1.png", "Bapsang Yejeol","밥상예절", "", ""));
+        foodCultureItems.add(new FoodCultureItem("https://www.90daykorean.com/wp-content/uploads/2016/07/Korean-Table-Manners1.png", "Bapsang Yejeol","밥상예절", "", ""));
 
         recyclerView= findViewById(R.id.recycler);
         adapter= new FoodCultureAdapter(this, foodCultureItems);
@@ -65,6 +63,7 @@ public class FoodCultureActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
 
                     ArrayList<FoodCultureItem> items= response.body();
+                    //Toast.makeText(FoodCultureActivity.this, items., Toast.LENGTH_SHORT).show();
                     Toast.makeText(FoodCultureActivity.this, "success loading"+items.size(), Toast.LENGTH_SHORT).show();
 
                     foodCultureItems.clear();
@@ -83,8 +82,7 @@ public class FoodCultureActivity extends AppCompatActivity {
             }
         });
 
-
-    }
+    }//loadDataFromServer
 
 
 }
