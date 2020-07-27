@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FoodCulture2Activity"></activity>
+        <activity android:name=".RecommendedActivity"></activity>
+        <activity android:name=".FoodCulture2Activity" />
         <activity android:name=".MyPostActivity" />
         <activity android:name=".BoardActivity" />
         <activity android:name=".EditPostActivity" />
@@ -36,6 +37,14 @@
         </activity>
         <activity android:name=".LaunchActivity" />
         <activity android:name=".MainActivity" />
+
+        <service
+            android:name=".NyamNyamFCMReceiveService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

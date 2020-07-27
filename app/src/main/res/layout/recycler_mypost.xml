@@ -5,10 +5,11 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="50dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/civ_profile"
@@ -31,6 +32,17 @@
             android:layout_toRightOf="@id/civ_profile"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="10dp"/>
+
+        <!--<TextView
+            android:id="@+id/tv_date_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Date when you wrote a post"
+            android:layout_toRightOf="@id/tv_nickName"
+            android:layout_marginTop="27dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>-->
     </RelativeLayout>
 
     <RelativeLayout

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/linear_foodBackground"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/galaxybackground"
+        android:backgroundTint="#88000000"
+        android:backgroundTintMode="src_over">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            tools:context=".VeganActivity">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview"
+                app:cardCornerRadius="30dp"
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:padding="16dp">
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bibimbap"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gimbap"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:layout_below="@id/cardview"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/iv_speech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_headset_white_60dp"
+                android:layout_toRightOf="@+id/tv_title"
+                android:layout_below="@id/cardview"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:onClick="clickSpeech"/>
+
+            <TextView
+                android:id="@+id/tv_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="김밥"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#ffffffff"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginBottom="10dp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sub"
+                android:layout_marginTop="7dp"
+                android:maxLines="10"
+                android:textColor="#ffffff"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+ when an unknown printer took a galley of type and scrambled it to m"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background2"
+                android:backgroundTint="#88ffffff"
+                android:layout_below="@id/tv_msg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:padding="10dp"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+ when an unknown printer took a galley of type and scrambled it to m"
+                android:inputType="textMultiLine"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>

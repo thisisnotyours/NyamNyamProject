@@ -86,6 +86,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
                     intent.putExtra("civ", items.get(getLayoutPosition()).civ);
                     intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
                     intent.putExtra("foodSub", items.get(getLayoutPosition()).foodSub);
+                    //추가할 데이터 전달하기
                     intent.putExtra("foodMsg", items.get(getLayoutPosition()).foodMsg);
                     intent.putExtra("foodBackground", items.get(getLayoutPosition()).foodBackground);
 

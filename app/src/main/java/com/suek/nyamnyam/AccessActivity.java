@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,6 +87,10 @@ public class AccessActivity extends AppCompatActivity {
         });
 
 
+
+        // Terms & conditions- 밑줄 긋기
+        TextView tvTermsCondirion= findViewById(R.id.terms_condition);
+        tvTermsCondirion.setPaintFlags(tvTermsCondirion.getPaintFlags());
 
 
 

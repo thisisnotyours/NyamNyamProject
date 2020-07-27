@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -125,6 +128,9 @@ public class EditPostActivity extends AppCompatActivity {
     public void clickShare(View view){
         String title= etTitle.getText().toString();
         String msg= etMsg.getText().toString();
+        SharedPreferences preferences= getSharedPreferences("Data", MODE_PRIVATE);
+        String email= preferences.getString("email", "");
+
 
         Retrofit retrofit= RetrofitHelper.getInstance2();
         RetrofitService retrofitService= retrofit.create(RetrofitService.class);
@@ -132,6 +138,7 @@ public class EditPostActivity extends AppCompatActivity {
         Map<String, String> dataPart= new HashMap<>();
         dataPart.put("title", title);
         dataPart.put("msg", msg);
+        dataPart.put("email", email);
 
         MultipartBody.Part filePart= null;
         if(imgPath != null){

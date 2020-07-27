@@ -17,7 +17,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_board_star_grey_40dp"
+        android:src="@drawable/ic_supervisor_account_grey_40dp"
         android:layout_toRightOf="@id/back"
         android:layout_marginTop="10dp"/>
 

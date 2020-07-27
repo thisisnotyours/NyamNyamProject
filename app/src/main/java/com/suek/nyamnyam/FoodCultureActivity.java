@@ -37,6 +37,8 @@ public class FoodCultureActivity extends AppCompatActivity {
         adapter= new FoodCultureAdapter(this, foodCultureItems);
         recyclerView.setAdapter(adapter);
 
+        recyclerView.scrollToPosition(foodCultureItems.size()-1); //
+
 
     }//onCreate
 

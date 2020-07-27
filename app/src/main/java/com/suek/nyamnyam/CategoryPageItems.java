@@ -7,6 +7,8 @@ public class CategoryPageItems {
     String civ;
     String foodTitle;
     String foodSub;
+
+    //전달할 데이터 추가해주기
     String foodMsg;
     String foodBackground;
 

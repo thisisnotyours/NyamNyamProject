@@ -1,6 +1,8 @@
 package com.suek.nyamnyam;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,9 +22,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.w3c.dom.Text;
 
@@ -101,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         navigationView= findViewById(R.id.nav);
         // 불러올 로그인정보에 쓸 데이터를 넣어줄 아이디 찾아주기
         headerEmail= navigationView.getHeaderView(0).findViewById(R.id.tv_email);
@@ -136,6 +142,31 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.food_category:
                         Intent intent2= new Intent(MainActivity.this, FoodCategoryPageActivity.class);
                         startActivity(intent2);
+                        break;
+
+                    case R.id.food_culture:
+                        Intent intent3= new Intent(MainActivity.this, FoodCultureActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    /*case R.id.recommended_recipe:
+                        Intent intent4= new Intent(MainActivity.this, RecommendedActivity.class);
+                        startActivity(intent4);
+                        break;*/
+
+                    case R.id.board:
+                        Intent intent5= new Intent(MainActivity.this, BoardActivity.class);
+                        startActivity(intent5);
+                        break;
+
+                    case R.id.editpost:
+                        Intent intent6= new Intent(MainActivity.this, EditPostActivity.class);
+                        startActivity(intent6);
+                        break;
+
+                    case R.id.mypost:
+                        Intent intent7= new Intent(MainActivity.this, MyPostActivity.class);
+                        startActivity(intent7);
                         break;
 
                     /*case R.id.saved:
@@ -227,8 +258,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
         //Draggable FAB...
         /*fab.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -261,6 +290,23 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
 
+
+        //토큰받기  -DB에서 사용할때 토큰필요
+        /*FirebaseInstanceId firebaseInstanceId= FirebaseInstanceId.getInstance();
+        Task<InstanceIdResult> task= firebaseInstanceId.getInstanceId();
+        task.addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+            @Override
+            public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                String token= task.getResult().getToken();
+
+                Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+                Log.i("token", token);
+            }
+        });*/
+
+
+
     }//onCreate..
+
 
 }//MainActivity..

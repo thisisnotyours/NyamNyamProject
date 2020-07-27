@@ -20,9 +20,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MyPostAdapter extends RecyclerView.Adapter {
 
     Context context;
-    ArrayList<MyPostItem> items;
+    ArrayList<BoardItem> items;
 
-    public MyPostAdapter(Context context, ArrayList<MyPostItem> items) {
+    public MyPostAdapter(Context context, ArrayList<BoardItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -39,11 +39,11 @@ public class MyPostAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
-        MyPostItem myPostItem= items.get(position);
+        BoardItem boardItem= items.get(position);
         String imgUrl="http://suhyun2963.dothome.co.kr/Retrofit_Board_NyamNyam/";
         Glide.with(context).load(imgUrl).into(vh.iv);
-        vh.tvTitle.setText(myPostItem.title);
-        vh.tvMsg.setText(myPostItem.msg);
+        vh.tvTitle.setText(boardItem.title);
+        vh.tvMsg.setText(boardItem.msg);
     }
 
     @Override

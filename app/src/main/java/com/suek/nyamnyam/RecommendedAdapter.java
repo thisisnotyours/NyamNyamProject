@@ -64,7 +64,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent= new Intent(context, RecipeActivity.class);
+                    Intent intent= new Intent(context, RecommendedActivity.class);
                     intent.putExtra("foodIv", items.get(getLayoutPosition()).iv);
                     intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodtTitle);
 
