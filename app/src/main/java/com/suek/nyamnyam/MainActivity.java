@@ -169,6 +169,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent7);
                         break;
 
+                    case R.id.terms_condition:
+                        Intent intent8= new Intent(MainActivity.this, TermsActivity.class);
+                        startActivity(intent8);
+                        //menuItem.setTitle("Terms & Conditions");
+                        break;
+
                     /*case R.id.saved:
                         Intent intent3= new Intent(MainActivity.this, SavedActivity.class);
                         startActivity(intent3);
@@ -206,24 +212,24 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isOpen){                                 //isOpen 이 true? 아닐경우 else(위에서 이미 참조불린변수에 isOpen false 라고 줌)
+                if(!isOpen){                                 //isOpen 이 true? 아닐경우 else(위에서 이미 참조불린변수에 isOpen false 라고 줌)
                     tv_my_blog.setVisibility(View.VISIBLE);
                     tv_board.setVisibility(View.VISIBLE);
                     tv_post.setVisibility(View.VISIBLE);
-                    fab3_post.startAnimation(fab_close);
-                    fab2_board.startAnimation(fab_close);
-                    fab1_my_blog.startAnimation(fab_close);
+                    fab3_post.startAnimation(fab_open);
+                    fab2_board.startAnimation(fab_open);
+                    fab1_my_blog.startAnimation(fab_open);
                     fab.startAnimation(fab_anticlock);
-                    isOpen= false;   //다음에 바뀔것을 생각해서
+                    isOpen= true;   //다음에 바뀔것을 생각해서
                 }else {
                     tv_my_blog.setVisibility(View.INVISIBLE);
                     tv_board.setVisibility(View.INVISIBLE);
                     tv_post.setVisibility(View.INVISIBLE);
-                    fab3_post.startAnimation(fab_open);
-                    fab2_board.startAnimation(fab_open);
-                    fab1_my_blog.startAnimation(fab_open);
+                    fab3_post.startAnimation(fab_close);
+                    fab2_board.startAnimation(fab_close);
+                    fab1_my_blog.startAnimation(fab_close);
                     fab.startAnimation(fab_clock);
-                    isOpen= true;
+                    isOpen= false;
                 }
             }
         });

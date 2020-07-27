@@ -4,18 +4,18 @@
 
     <scale
         android:duration="300"
-        android:fromXScale="0.8"
-        android:fromYScale="0.8"
-        android:toXScale="0.0"
-        android:toYScale="0.0"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:toXScale="0.8"
+        android:toYScale="0.8"
         android:interpolator="@android:anim/linear_interpolator"
         android:pivotX="50%"
-        android:pivotY="50%">
+        android:pivotY="50%">  <!--fromYScale 0.0-작은것에서 커짐 toYscale 0.8-->
     </scale>
 
     <alpha
-        android:fromAlpha="1.0"
-        android:toAlpha="0.0"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
         android:duration="300"
         android:interpolator="@android:anim/accelerate_interpolator">
     </alpha>
