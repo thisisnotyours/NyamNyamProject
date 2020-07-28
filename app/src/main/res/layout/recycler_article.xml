@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp"
+    android:elevation="5dp"
+    android:layout_marginBottom="25dp">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@color/colorPrimaryDark"/>
-
-    <TextView
-        android:id="@+id/tv_article_title"
-        android:layout_width="wrap_content"
+    <!--android:background="@drawable/background2"
+    android:backgroundTint="#88ffffff"-->
+    <RelativeLayout
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="5 reasons why Korean food is healthy"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_toRightOf="@id/iv"
-        android:layout_marginLeft="10dp"
-        android:layout_centerInParent="true"/>
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="250dp"
+            android:layout_height="120dp"
+            android:src="@drawable/bibimbap"
+            android:tint="#55000000"
+            android:tintMode="src_over"
+            android:scaleType="centerCrop"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="Article"
+            android:elevation="10dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
 
-</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

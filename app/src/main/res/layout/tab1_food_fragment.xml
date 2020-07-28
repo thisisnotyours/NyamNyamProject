@@ -43,8 +43,8 @@
                 <ImageView
                     android:id="@+id/iv_food_culture"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@drawable/foodculturejpg"
+                    android:layout_height="130dp"
+                    android:background="@drawable/foodculture2"
                     android:clickable="true"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,11 +55,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RECOMMENDED RECIPES"
-                        android:layout_marginBottom="15dp"
+                        android:layout_marginBottom="8dp"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="20dp"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_recommended"
                         android:layout_width="wrap_content"
@@ -74,9 +74,10 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_gravity="center"
+                    android:background="#B7C1DA"
                     android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"

@@ -4,14 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFC907"
+    android:background="@drawable/gujeolpan"
+    android:backgroundTint="#88000000"
+    android:backgroundTintMode="src_over"
     tools:context=".LaunchActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Launch Activity"
-        android:textSize="24sp"
+        android:text="Nyam Nyam"
+        android:fontFamily="@font/danjunghae"
+        android:textSize="40sp"
+        android:textColor="#ffffffff"
+        android:gravity="center_horizontal"
         android:textStyle="bold"
         android:paddingLeft="30dp"
         android:layout_centerInParent="true"/>

@@ -1,5 +1,6 @@
 package com.suek.nyamnyam;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -70,11 +71,21 @@ public class CouponAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(context, CouponActivity.class);
-                    intent.putExtra("image", couponItems.get(getLayoutPosition()).imgUrl);
-                    intent.putExtra("title", couponItems.get(getLayoutPosition()).tvTitle);
-                    context.startActivity(intent);
+                    AlertDialog.Builder builder= new AlertDialog.Builder(context);
+                    View view1= LayoutInflater.from(context).inflate(R.layout.coupon_dialog, null);
+
+                    CouponItem item= couponItems.get(0);
+                    TextView tvTitle= view1.findViewById(R.id.tv_title);
+                    TextView tvDate= view1.findViewById(R.id.tv_date);
+                    ImageView iv= view1.findViewById(R.id.iv_barcode);
+
+                    tvTitle.setText(item.tvTitle);
+                    tvDate.setText(item.tvDate);
+                    Glide.with(view1).load(item.imgUrl).into(iv);
+
+                    builder.setView(view1);
+                    AlertDialog alertDialog= builder.create();
+                    alertDialog.show();
                 }
             });
         }

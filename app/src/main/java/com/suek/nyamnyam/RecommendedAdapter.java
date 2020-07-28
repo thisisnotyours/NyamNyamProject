@@ -39,8 +39,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
         RecommendedItems recommendedItems= items.get(position);
-        vh.foodTitle.setText(recommendedItems.foodtTitle);
-        Glide.with(context).load(recommendedItems.iv).into(vh.iv);
+        vh.foodTitle.setText(recommendedItems.foodTitle);
+        Glide.with(context).load(recommendedItems.foodIv).into(vh.iv);
     }
 
     @Override
@@ -65,8 +65,15 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     Intent intent= new Intent(context, RecommendedActivity.class);
-                    intent.putExtra("foodIv", items.get(getLayoutPosition()).iv);
-                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodtTitle);
+                    intent.putExtra("foodIv", items.get(getLayoutPosition()).foodIv);
+                    intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);
+
+                    intent.putExtra("foodTitleEng", items.get(getLayoutPosition()).foodTitleEng);
+                    intent.putExtra("foodSub", items.get(getLayoutPosition()).foodSub);
+                    //intent.putExtra("foodMsg", items.get(getLayoutPosition()).foodMsg);
+                    intent.putExtra("foodIng", items.get(getLayoutPosition()).foodIng);
+                    intent.putExtra("foodStep", items.get(getLayoutPosition()).foodStep);
+                    intent.putExtra("source", items.get(getLayoutPosition()).source);
 
                     context.startActivity(intent);
                 }

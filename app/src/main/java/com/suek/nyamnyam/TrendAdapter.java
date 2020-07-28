@@ -2,6 +2,7 @@ package com.suek.nyamnyam;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,11 +63,10 @@ public class TrendAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(context, TrendActivity.class);
-                    intent.putExtra("imgUrl", items.get(getLayoutPosition()).imgUrl);
-                    intent.putExtra("tvTitle", items.get(getLayoutPosition()).tvTitle);
-                    context.startActivity(intent);
+                    String url= "https://www.cj.co.kr/en/k-food-life/trend-insight";
+                    Intent i= new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    context.startActivity(i);
                 }
             });
         }

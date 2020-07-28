@@ -12,7 +12,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@drawable/galaxybackground"
+        android:background="@drawable/vegan_kimchi"
         android:backgroundTint="#88000000"
         android:backgroundTintMode="src_over">
 
@@ -26,16 +26,29 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview"
                 app:cardCornerRadius="30dp"
-                android:layout_width="400dp"
-                android:layout_height="300dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
                 android:padding="16dp">
                 <ImageView
                     android:id="@+id/iv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bibimbap"/>
+                    android:layout_width="350dp"
+                    android:layout_height="220dp"
+                    android:scaleType="centerCrop"/>
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_title_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oxtail Soup"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#4CAF50"
+                android:layout_below="@id/cardview"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"/>
 
             <TextView
                 android:id="@+id/tv_title"
@@ -45,19 +58,18 @@
                 android:textColor="#ffffffff"
                 android:textStyle="bold"
                 android:textSize="30sp"
-                android:layout_below="@id/cardview"
-                android:layout_marginTop="20dp"
+                android:layout_below="@id/tv_title_eng"
                 android:layout_centerHorizontal="true"/>
 
             <ImageView
                 android:id="@+id/iv_speech"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_headset_white_60dp"
+                android:src="@drawable/ic_headset_blue_40dp"
                 android:layout_toRightOf="@+id/tv_title"
                 android:layout_below="@id/cardview"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="43dp"
                 android:onClick="clickSpeech"/>
 
             <TextView
@@ -72,26 +84,13 @@
                 android:layout_marginBottom="10dp"
                 android:layout_centerHorizontal="true"/>
 
-            <TextView
-                android:id="@+id/tv_msg"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_sub"
-                android:layout_marginTop="7dp"
-                android:maxLines="10"
-                android:textSize="16sp"
-                android:textColor="#ffffff"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
- when an unknown printer took a galley of type and scrambled it to m"
-                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_marginTop="30dp">
+            android:padding="16dp">
             <TextView
                 android:id="@+id/tv_ingredient_title"
                 android:layout_width="wrap_content"
@@ -102,7 +101,7 @@
                 android:textColor="#ffffff"
                 android:layout_marginLeft="15dp"/>
             <TextView
-                android:id="@+id/ingredient"
+                android:id="@+id/tv_ing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_ingredient_title"
@@ -123,9 +122,10 @@
                 android:textStyle="bold"
                 android:textColor="#ffffff"
                 android:layout_marginLeft="15dp"
-                android:layout_below="@id/ingredient"/>
+                android:layout_marginTop="35dp"
+                android:layout_below="@id/tv_ing"/>
             <TextView
-                android:id="@+id/step"
+                android:id="@+id/tv_step"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_step_title"
@@ -138,16 +138,19 @@
  when an unknown printer took a galley of type and scrambled it to m"/>
 
             <TextView
+                android:id="@+id/tv_source_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_step"
+                android:text="SOURCE"/>
+            <TextView
                 android:id="@+id/tv_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/step"
-                android:text="SOURCE"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="from BBC"
-                android:layout_below="@id/tv_source"/>
+                android:textColor="#03A9F4"
+                android:layout_below="@id/tv_source_title"/>
+
 
         </RelativeLayout>
 

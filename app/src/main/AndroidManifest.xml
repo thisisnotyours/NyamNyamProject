@@ -22,9 +22,6 @@
         <activity android:name=".BoardActivity" />
         <activity android:name=".EditPostActivity" />
         <activity android:name=".FoodCultureActivity" />
-        <activity android:name=".CouponActivity" />
-        <activity android:name=".ArticleActivity" />
-        <activity android:name=".TrendActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".VeganActivity" />
         <activity android:name=".FoodCategoryPageActivity" />
