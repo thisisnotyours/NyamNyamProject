@@ -15,11 +15,11 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        //handler.sendEmptyMessageDelayed(0, 4000);
+        handler.sendEmptyMessageDelayed(0, 2000);
 
     }//onCreate..
 
-    /*Handler handler= new Handler(){
+    Handler handler= new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             Intent intent= new Intent(LaunchActivity.this, LoginActivity.class);
@@ -27,7 +27,7 @@ public class LaunchActivity extends AppCompatActivity {
 
             finish();
         }
-    };*/
+    };
 
 
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
 
     Context context;
     ArrayList<RecommendedItems> items;
+
+    //String speech[]= new String[];
 
     public RecommendedAdapter(Context context, ArrayList<RecommendedItems> items) {
         this.context = context;
@@ -64,6 +67,9 @@ public class RecommendedAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    Toast.makeText(context, ""+foodTitle.getText(), Toast.LENGTH_SHORT).show();
+
                     Intent intent= new Intent(context, RecommendedActivity.class);
                     intent.putExtra("foodIv", items.get(getLayoutPosition()).foodIv);
                     intent.putExtra("foodTitle", items.get(getLayoutPosition()).foodTitle);

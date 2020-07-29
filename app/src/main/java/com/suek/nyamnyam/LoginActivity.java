@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             btn_google.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.i("login","aaa");
                     Intent intent= Auth.GoogleSignInApi.getSignInIntent(googleApiClient);   //구글 인증 액티비티(구글이 만든 다른 화면으로)으로 이동
                     startActivityForResult(intent, REQ_SIGN_GOOGLE);
                 }
@@ -80,8 +81,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode==REQ_SIGN_GOOGLE){
+            Log.i("login","bbb");
             GoogleSignInResult result= Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if(result.isSuccess()){
+                Log.i("login","ccc");
                 GoogleSignInAccount account= result.getSignInAccount();  //account= 구글로그인 정보를 담고있음(닉네임, 프로필사진, 이메일주소..etc)
                 resultLogin(account);  //로그인 결과값 실행하는 메소드
             }
@@ -97,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {     //로그인 인증결과
                 if(task.isSuccessful()){
+                    Log.i("login","ddd");
                     Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(), AccessActivity.class);
                     intent.putExtra("email", account.getEmail());

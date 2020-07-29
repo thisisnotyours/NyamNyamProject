@@ -9,6 +9,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -74,14 +75,17 @@ public class RecommendedActivity extends AppCompatActivity {
         });
 
         ivHeadset= findViewById(R.id.iv_headset);
-        iv.setOnClickListener(new View.OnClickListener() {
+        ivHeadset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tts.setPitch(1.0f);
                 tts.setSpeechRate(0.5f);
                 tts.speak(tvSub.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
+                Toast.makeText(RecommendedActivity.this, ""+tvTitle.getText(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
     }//onCreate
 }

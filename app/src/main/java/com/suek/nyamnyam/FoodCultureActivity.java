@@ -66,7 +66,7 @@ public class FoodCultureActivity extends AppCompatActivity {
 
                     ArrayList<FoodCultureItem> items= response.body();
                     //Toast.makeText(FoodCultureActivity.this, items., Toast.LENGTH_SHORT).show();
-                    Toast.makeText(FoodCultureActivity.this, "success loading"+items.size(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(FoodCultureActivity.this, "success loading"+items.size(), Toast.LENGTH_SHORT).show();
 
                     foodCultureItems.clear();
                     adapter.notifyDataSetChanged();

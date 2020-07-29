@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
@@ -12,8 +12,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@drawable/vegan_kimchi"
-        android:backgroundTint="#88000000"
+        android:background="@drawable/gujeolpan"
+        android:backgroundTint="#99000000"
         android:backgroundTintMode="src_over">
 
 
@@ -62,15 +62,14 @@
                 android:layout_centerHorizontal="true"/>
 
             <ImageView
-                android:id="@+id/iv_speech"
+                android:id="@+id/iv_headset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_headset_blue_40dp"
                 android:layout_toRightOf="@+id/tv_title"
                 android:layout_below="@id/cardview"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="43dp"
-                android:onClick="clickSpeech"/>
+                android:layout_marginTop="47dp" />
 
             <TextView
                 android:id="@+id/tv_sub"

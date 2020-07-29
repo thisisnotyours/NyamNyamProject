@@ -26,14 +26,14 @@
         <activity android:name=".VeganActivity" />
         <activity android:name=".FoodCategoryPageActivity" />
         <activity android:name=".AccessActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LaunchActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LaunchActivity" />
         <activity android:name=".MainActivity" />
 
         <service
