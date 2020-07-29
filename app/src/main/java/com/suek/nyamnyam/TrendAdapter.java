@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,10 +64,25 @@ public class TrendAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String url= "https://www.cj.co.kr/en/k-food-life/trend-insight";
-                    Intent i= new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(url));
-                    context.startActivity(i);
+
+                    switch(getLayoutPosition()){
+                        case 0:
+                            String url= "https://www.cj.co.kr/en/k-food-life/trend-insight";
+                            Intent i= new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            context.startActivity(i);
+                            break;
+
+                        case 1:
+                            String url1= "https://www.90daykorean.com/korean-culture/";
+                            Intent i1= new Intent(Intent.ACTION_VIEW);
+                            i1.setData(Uri.parse(url1));
+                            context.startActivity(i1);
+                            break;
+                    }
+
+
+
                 }
             });
         }
