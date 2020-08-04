@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -159,25 +160,54 @@ public class EditPostActivity extends AppCompatActivity {
 
 
 
-    public void clickSelectImage(View view){
+
+    public void clickPhoto(View view){
         Intent intent= new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, 10);
+    }
+
+    //카메라앱 실행시키는 함수
+    public void clickCamera(View view){
+        Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, 20);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==10 && resultCode==RESULT_OK){
-            Uri uri= data.getData();
-            if(uri != null){
-                Glide.with(this).load(uri).into(iv);
-                imgPath= getRealPathFromUri(uri);
-                new AlertDialog.Builder(this).setMessage(imgPath).show();
-            }
+        switch (requestCode){
+            case 10:
+                if(resultCode==RESULT_OK){
+                    Uri uri= data.getData();
+                    if(uri != null){
+                        Glide.with(this).load(uri).into(iv);
+                        imgPath= getRealPathFromUri(uri);
+                        new AlertDialog.Builder(this).setMessage(imgPath).show();
+                    }
+                }
+                break;
+
+            case 20:
+                if(requestCode!=RESULT_CANCELED){
+                    Toast.makeText(this, "take a photo", Toast.LENGTH_SHORT).show();
+                    Uri uri= data.getData();
+                    if(uri!=null){
+                        Glide.with(this).load(uri).into(iv);
+                    }else {
+                        Bundle bundle= data.getExtras();
+                        Bitmap bm= (Bitmap) bundle.get("data");
+                        Glide.with(this).load(bm).into(iv);
+                    }
+                }
+                break;
         }
+
     }
+
+
+
 
 
     String getRealPathFromUri(Uri uri){
@@ -234,6 +264,8 @@ public class EditPostActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 
 

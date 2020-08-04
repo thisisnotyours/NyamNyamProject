@@ -1,6 +1,7 @@
 package com.suek.nyamnyam;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,6 +81,15 @@ public class MyPostAdapter extends RecyclerView.Adapter {
             String profileUrl= pref.getString("profileUrl", "");
             tvNickName.setText(nickName);
             Glide.with(context).load(profileUrl).into(civProfile);
+
+
+
+            //Grid Activity 에서 보여줄 데이터 넘기기
+            Intent intent= new Intent(context, Grid_myPostActivity.class);
+            intent.putExtra("file", items.get(getLayoutPosition()).file);
+            intent.putExtra("title", items.get(getLayoutPosition()).title);
+            intent.putExtra("date", items.get(getLayoutPosition()).date);
+            context.startActivity(intent);
 
         }
     }

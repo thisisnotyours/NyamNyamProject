@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MyPostActivity extends AppCompatActivity {
+
+    ImageView ivGrid;
 
     RecyclerView recyclerView;
     ArrayList<BoardItem> boardItems= new ArrayList<>();
@@ -54,6 +58,19 @@ public class MyPostActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        ////Grid Activity 에서 보여줄 데이터 넘기기??
+        ivGrid= findViewById(R.id.iv_grid);
+        ivGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getBaseContext(), Grid_myPostActivity.class);
+                startActivity(intent);
+                //intent.putExtra("file", )
+            }
+        });
 
 
         // Expandable FAB

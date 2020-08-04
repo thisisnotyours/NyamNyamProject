@@ -15,18 +15,35 @@
         android:onClick="clickBack"/>
 
     <ImageView
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_post_edit_grey_40dp"
-        android:layout_toRightOf="@id/back"
-        android:layout_marginTop="5dp"/>
+        android:layout_toRightOf="@id/back"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/edit"
+        android:text="Create Post"
+        android:textSize="20sp"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="POST"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:onClick="clickShare"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/background4">
+        android:layout_marginTop="50dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/civ_profile"
             android:layout_width="60dp"
@@ -48,25 +65,28 @@
             android:layout_marginTop="40dp"
             android:layout_marginLeft="10dp"/>
         <ImageView
-            android:id="@+id/selectImage"
+            android:id="@+id/iv_photo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_attach_file_grey_20dp"
+            android:src="@drawable/ic_photo_library_grey_30dp"
             android:layout_above="@id/et_msg"
             android:layout_toRightOf="@id/et_title"
-            android:layout_marginLeft="50dp"
-            android:onClick="clickSelectImage"/>
+            android:layout_marginLeft="26dp"
+            android:onClick="clickPhoto"/>
+
+
         <ImageView
-            android:id="@+id/share"
+            android:id="@+id/iv_camera"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_save_white_20dp"
-            android:layout_alignParentRight="true"
             android:layout_above="@id/et_msg"
-            android:layout_toRightOf="@id/selectImage"
-            android:layout_marginLeft="8dp"
-            android:onClick="clickShare"/>
-
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toRightOf="@id/iv_photo"
+            android:src="@drawable/ic_camera_alt_grey_30dp"
+            android:onClick="clickCamera"/>
 
         <EditText
             android:id="@+id/et_title"

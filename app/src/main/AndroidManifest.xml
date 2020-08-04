@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TermsActivity"></activity>
+        <activity android:name=".Grid_myPostActivity"></activity>
+        <activity android:name=".TermsActivity" />
         <activity android:name=".RecommendedActivity" />
         <activity android:name=".FoodCulture2Activity" />
         <activity android:name=".MyPostActivity" />
@@ -26,8 +27,8 @@
         <activity android:name=".VeganActivity" />
         <activity android:name=".FoodCategoryPageActivity" />
         <activity android:name=".AccessActivity" />
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".LaunchActivity" >
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -128,4 +128,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
 
+
+
+
+    //비회원 메인화면으로 바로가기 버튼
+    public void clickNonMember(View view){
+        Intent intent= new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
 }//Login Activity..

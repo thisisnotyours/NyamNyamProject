@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyPostActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back_black_40dp"
+        android:layout_marginTop="10dp"
+        android:onClick="clickBack"/>
+
+    <ImageView
+        android:id="@+id/iv_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_mypost_person_grey_40dp"
+        android:layout_toRightOf="@id/back"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_your_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_person"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:text="Your Post"
+        android:layout_marginLeft="10dp"/>
+
+
+    <ImageView
+        android:id="@+id/iv_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_list_30dp"
+        android:layout_toLeftOf="@id/iv_grid"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"/>
+
+    <ImageView
+        android:id="@+id/iv_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_grid_30dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"/>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_marginTop="70dp"
+        android:paddingLeft="16dp"/>
+
+
+</RelativeLayout>

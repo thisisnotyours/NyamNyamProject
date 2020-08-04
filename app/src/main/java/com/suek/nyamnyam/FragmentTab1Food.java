@@ -1,7 +1,9 @@
 package com.suek.nyamnyam;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,6 +36,9 @@ import retrofit2.Retrofit;
 // 1. Food Tab
 
 public class FragmentTab1Food extends Fragment {
+
+    TextView tvShareYourCook;
+    CircleImageView civProfile;
 
     // food Category
     ArrayList<Item> items= new ArrayList<>();
@@ -263,6 +269,26 @@ public class FragmentTab1Food extends Fragment {
 
 
 
+        //프로필사진 (로그인정보) 불러들여오기
+        civProfile= view.findViewById(R.id.civ_profile);
+        SharedPreferences pref= this.getActivity().getSharedPreferences("Data", Context.MODE_PRIVATE);
+        String profileUrl= pref.getString("profileUrl","");
+        Glide.with(getContext()).load(profileUrl).into(civProfile);
+
+
+        tvShareYourCook= view.findViewById(R.id.tv_share_your_cook);
+        tvShareYourCook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(), EditPostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
 
 
 
@@ -288,7 +314,9 @@ public class FragmentTab1Food extends Fragment {
 
             }
         });
+
         return view;
+
 
 
 
@@ -349,6 +377,9 @@ public class FragmentTab1Food extends Fragment {
             }
         });
     }
+
+
+
 
 
 
