@@ -22,7 +22,7 @@ public class LaunchActivity extends AppCompatActivity {
     Handler handler= new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
-            Intent intent= new Intent(LaunchActivity.this, LoginActivity.class);
+            Intent intent= new Intent(LaunchActivity.this, Login2Activity.class);
             startActivity(intent);
 
             finish();

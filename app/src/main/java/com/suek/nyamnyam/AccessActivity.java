@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -48,8 +49,8 @@ public class AccessActivity extends AppCompatActivity {
         String profileUrl= intent.getStringExtra("profileUrl");  //받아온 프로필 이미지값
 
 
-        /*Log.i("nickName", nickName+"");
-        Log.i("photoUrl", profileUrl+"");*/
+        Log.i("nickName", nickName+"");
+        Log.i("photoUrl", profileUrl+"");
 
         tvEmail= findViewById(R.id.tv_user_email);
         tvEmail.setText(email);
@@ -59,6 +60,7 @@ public class AccessActivity extends AppCompatActivity {
 
         civProfile= findViewById(R.id.civ_profile);
         Glide.with(this).load(profileUrl).into(civProfile);   //2. 포토Url- Civ 뷰에 세팅
+
 
 
 
