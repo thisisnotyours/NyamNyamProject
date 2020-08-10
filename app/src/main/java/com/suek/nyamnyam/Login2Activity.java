@@ -153,6 +153,11 @@ public class Login2Activity extends AppCompatActivity {
     }
 
 
+    public void clickNonMember(View view){
+        Intent intent= new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
 }
 
