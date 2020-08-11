@@ -7,6 +7,9 @@
     <item android:id="@+id/food_category"
         android:title="Food Category"
         android:icon="@drawable/ic_restaurant_grey_24dp" />
+    <item android:id="@+id/bookmark"
+        android:title="Bookmark"
+        android:icon="@drawable/ic_favorite_grey_24dp"/>
     <item android:id="@+id/food_culture"
         android:title="Food Culture"
         android:icon="@drawable/ic_board_star_grey_40dp"/>

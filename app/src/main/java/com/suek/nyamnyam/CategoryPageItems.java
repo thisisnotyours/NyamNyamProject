@@ -8,6 +8,8 @@ public class CategoryPageItems {
     String foodTitle;
     String foodSub;
 
+    Boolean checkbox;
+
     //전달할 데이터 추가해주기
     String foodMsg;
     String foodBackground;
@@ -16,11 +18,12 @@ public class CategoryPageItems {
     public CategoryPageItems() {
     }
 
-    public CategoryPageItems(String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground) {
+    public CategoryPageItems(String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground, Boolean checkbox) {
         this.civ = civ;
         this.foodTitle = foodTitle;
         this.foodSub = foodSub;
         this.foodMsg = foodMsg;
         this.foodBackground = foodBackground;
+        this.checkbox= checkbox;
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +53,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         Glide.with(context).load(categoryPageItems.civ).into(vh.civ);
         vh.tvFoodTitle.setText(categoryPageItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
         vh.tvFoodSub.setText(categoryPageItems.foodSub);
+        vh.checkBox.isChecked();
     }
 
     @Override
@@ -68,12 +70,18 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         TextView tvFoodTitle;
         TextView tvFoodSub;
 
+        CheckBox checkBox;
+
         public VH(@NonNull final View itemView) {
             super(itemView);
 
             this.civ= itemView.findViewById(R.id.civ);
             this.tvFoodTitle= itemView.findViewById(R.id.tv_food_title);
             this.tvFoodSub= itemView.findViewById(R.id.tv_food_sub);
+
+            this.checkBox= itemView.findViewById(R.id.checkbox);
+
+
 
 
 
@@ -93,6 +101,9 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
                     context.startActivity(intent);
                 }
             });
+
+
+
         }
     }
 
