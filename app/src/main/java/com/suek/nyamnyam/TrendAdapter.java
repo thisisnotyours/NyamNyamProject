@@ -79,6 +79,13 @@ public class TrendAdapter extends RecyclerView.Adapter {
                             i1.setData(Uri.parse(url1));
                             context.startActivity(i1);
                             break;
+
+                        case 2:
+                            String url2= "https://www.90daykorean.com/korean-culture/";
+                            Intent i2= new Intent(Intent.ACTION_VIEW);
+                            i2.setData(Uri.parse(url2));
+                            context.startActivity(i2);
+                            break;
                     }
 
 

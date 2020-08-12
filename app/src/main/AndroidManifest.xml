@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Login2Activity"></activity>
+        <activity android:name=".BookmarkActivity"></activity>
+        <activity android:name=".Login2Activity" />
         <activity android:name=".Grid_myPostActivity" />
         <activity android:name=".TermsActivity" />
         <activity android:name=".RecommendedActivity" />

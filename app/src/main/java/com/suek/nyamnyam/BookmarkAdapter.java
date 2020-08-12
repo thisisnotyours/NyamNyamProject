@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,23 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CategoryPageAdapter extends RecyclerView.Adapter {
+public class BookmarkAdapter extends RecyclerView.Adapter {
 
     Context context;
-    ArrayList<CategoryPageItems> items;
+    ArrayList<BookmarkItems> items;
 
-    SQLiteDatabase db;
 
-    public CategoryPageAdapter() {
+    public BookmarkAdapter() {
     }
 
-    public CategoryPageAdapter(Context context, ArrayList<CategoryPageItems> items) {
+    public BookmarkAdapter(Context context, ArrayList<BookmarkItems> items) {
         this.context = context;
         this.items = items;
     }
@@ -44,7 +39,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_category_page, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_bookmark, parent, false);
         VH holder= new VH(itemView);
         return holder;
     }
@@ -52,12 +47,11 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
-        CategoryPageItems categoryPageItems= items.get(position);
+        BookmarkItems bookmarkItems= items.get(position);
         //vh.civ.setImageResource(categoryPageItems.civ);
-        Glide.with(context).load(categoryPageItems.civ).into(vh.civ);
-        vh.tvFoodTitle.setText(categoryPageItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
-        vh.tvFoodSub.setText(categoryPageItems.foodSub);
-        vh.checkBox.isChecked();
+        Glide.with(context).load(bookmarkItems.civ).into(vh.civ);
+        vh.tvFoodTitle.setText(bookmarkItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
+        vh.tvFoodSub.setText(bookmarkItems.foodSub);
     }
 
     @Override
@@ -74,10 +68,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         TextView tvFoodTitle;
         TextView tvFoodSub;
 
-        //Bookmark
-        String dbName= "bookmark.db";
-        String tableName= "bookmarkItems";
-        CheckBox checkBox;
+
 
         public VH(@NonNull final View itemView) {
             super(itemView);
@@ -86,34 +77,17 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
             this.tvFoodTitle= itemView.findViewById(R.id.tv_food_title);
             this.tvFoodSub= itemView.findViewById(R.id.tv_food_sub);
 
-            this.checkBox= itemView.findViewById(R.id.checkbox);
+
 
 
 
             //Bookmark
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                    items.get(getLayoutPosition()).checkbox= isChecked;
-
-                    String foodImg= items.get(getLayoutPosition()).civ;
-                    String foodTitle= items.get(getLayoutPosition()).foodTitle;
-                    String foodSub= items.get(getLayoutPosition()).foodSub;
-                    int fav= items.get(getLayoutPosition()).checkbox? 1 : 0;
-
-
-//                    Toast.makeText(context, ""+items.get(getLayoutPosition()), Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(context, ""+foodTitle+"\n"+foodSub+"\n"+fav+"\n"+foodImg, Toast.LENGTH_SHORT).show();
-
-                    if(isChecked){
-                        db.execSQL(" INSERT INTO "+ tableName + "(foodImg, foodTitle, foodSub, fav) VALUES('"+foodImg+"','"+foodTitle+"','"+foodSub+"','"+fav+"')");
-                    }else {
-                        db.execSQL("DELETE FROM "+ tableName+" WHERE foodTitle='"+foodTitle+"'" );
-                    }
-
-                }
-            });
+//            checkBox.setChecked(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    db= SQLiteDatabase.openOrCreateDatabase(dbName, null);
+//                }
+//            });
 
 
 

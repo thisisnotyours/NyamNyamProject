@@ -29,7 +29,7 @@
         android:layout_toRightOf="@id/iv_person"
         android:layout_marginTop="15dp"
         android:textSize="20sp"
-        android:text="Your Post"
+        android:text="My Post"
         android:layout_marginLeft="10dp"/>
 
 

@@ -68,6 +68,9 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab3_post"
+                app:borderWidth="2dp"
+                app:backgroundTint="#FF5722"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -99,6 +102,9 @@
                 android:visibility="invisible"/>
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab2_board"
+                app:borderWidth="2dp"
+                app:backgroundTint="#FFC107"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFC107"
@@ -132,6 +138,9 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab1_my_blog"
+                app:borderWidth="2dp"
+                app:backgroundTint="#6FD59D"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -148,8 +157,12 @@
                 android:background="?attr/selectableItemBackground"
                 android:visibility="invisible"/>
 
+            <!--            -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
+                app:borderWidth="2dp"
+                app:backgroundTint="#759AF8"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

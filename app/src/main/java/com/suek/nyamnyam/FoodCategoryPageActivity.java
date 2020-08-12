@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
@@ -19,6 +20,10 @@ public class FoodCategoryPageActivity extends AppCompatActivity {
     ArrayList<CategoryPageItems> items= new ArrayList<>();
     CategoryPageAdapter adapter;
     RecyclerView recyclerView;
+
+    SQLiteDatabase db;
+    String dbName= "bookmark.db";
+    String tableName= "bookmarkItems";
 
 
 
@@ -46,7 +51,14 @@ public class FoodCategoryPageActivity extends AppCompatActivity {
         adapter= new CategoryPageAdapter(this, items);
         recyclerView.setAdapter(adapter);
 
-        //Intent intent
+
+        db= openOrCreateDatabase(dbName, MODE_PRIVATE, null);   // SQLite 객체생성
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + "(num integer primary key autoincrement, foodImg text not null, foodTitle text, foodSub text, fav integer )");   //데이터베이스 테이블 생성
+
+
+
+
+
 
 
 

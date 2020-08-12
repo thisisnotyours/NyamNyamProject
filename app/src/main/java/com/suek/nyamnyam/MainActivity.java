@@ -134,11 +134,6 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                    /*case R.id.account:
-                        Intent intent1= new Intent(MainActivity.this, AccountActivity.class);
-                        startActivity(intent1);
-                        break;*/
-
                     case R.id.food_category:
                         Intent intent2= new Intent(MainActivity.this, FoodCategoryPageActivity.class);
                         startActivity(intent2);
@@ -153,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent4= new Intent(MainActivity.this, RecommendedActivity.class);
                         startActivity(intent4);
                         break;*/
+
+                    case R.id.bookmark:
+                        Intent intent1= new Intent(MainActivity.this, BookmarkActivity.class);
+                        startActivity(intent1);
+                        break;
 
                     case R.id.board:
                         Intent intent5= new Intent(MainActivity.this, BoardActivity.class);
