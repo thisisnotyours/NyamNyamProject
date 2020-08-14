@@ -52,6 +52,7 @@ public class FoodCategoryPageActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
+        //SQLite 작업 (for checkbox/ fav)
         db= openOrCreateDatabase(dbName, MODE_PRIVATE, null);   // SQLite 객체생성
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + "(num integer primary key autoincrement, foodImg text not null, foodTitle text, foodSub text, fav integer )");   //데이터베이스 테이블 생성
 

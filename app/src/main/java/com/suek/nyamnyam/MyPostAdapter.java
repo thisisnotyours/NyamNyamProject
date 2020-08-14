@@ -85,11 +85,13 @@ public class MyPostAdapter extends RecyclerView.Adapter {
 
 
             //Grid Activity 에서 보여줄 데이터 넘기기
-            Intent intent= new Intent(context, Grid_myPostActivity.class);
-            intent.putExtra("file", items.get(getLayoutPosition()).file);
-            intent.putExtra("title", items.get(getLayoutPosition()).title);
-            intent.putExtra("date", items.get(getLayoutPosition()).date);
-            context.startActivity(intent);
+//            Intent intent= new Intent(context, Grid_myPostActivity.class);
+//            intent.putExtra("file", items.get(getLayoutPosition()).file);
+//            intent.putExtra("title", items.get(getLayoutPosition()).title);
+//            intent.putExtra("date", items.get(getLayoutPosition()).date);
+//            context.startActivity(intent);
+
+            // 데이터 보낸 상태에서 에러남
 
         }
     }

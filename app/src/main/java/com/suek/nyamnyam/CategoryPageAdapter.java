@@ -57,7 +57,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         Glide.with(context).load(categoryPageItems.civ).into(vh.civ);
         vh.tvFoodTitle.setText(categoryPageItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
         vh.tvFoodSub.setText(categoryPageItems.foodSub);
-        vh.checkBox.isChecked();
+        vh.fav.isChecked();
     }
 
     @Override
@@ -77,7 +77,7 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         //Bookmark
         String dbName= "bookmark.db";
         String tableName= "bookmarkItems";
-        CheckBox checkBox;
+        CheckBox fav;
 
         public VH(@NonNull final View itemView) {
             super(itemView);
@@ -86,23 +86,25 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
             this.tvFoodTitle= itemView.findViewById(R.id.tv_food_title);
             this.tvFoodSub= itemView.findViewById(R.id.tv_food_sub);
 
-            this.checkBox= itemView.findViewById(R.id.checkbox);
+            this.fav= itemView.findViewById(R.id.checkbox_fav);
 
 
 
             //Bookmark
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            fav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                    items.get(getLayoutPosition()).checkbox= isChecked;
+                    db= SQLiteDatabase.openOrCreateDatabase(dbName, null);
+
+                    items.get(getLayoutPosition()).fav= isChecked;
 
                     String foodImg= items.get(getLayoutPosition()).civ;
                     String foodTitle= items.get(getLayoutPosition()).foodTitle;
                     String foodSub= items.get(getLayoutPosition()).foodSub;
-                    int fav= items.get(getLayoutPosition()).checkbox? 1 : 0;
+                    int fav= items.get(getLayoutPosition()).fav? 1 : 0;
 
-
+                    //Toast.makeText(context, ""+isChecked, Toast.LENGTH_SHORT).show();
 //                    Toast.makeText(context, ""+items.get(getLayoutPosition()), Toast.LENGTH_SHORT).show();
 //                    Toast.makeText(context, ""+foodTitle+"\n"+foodSub+"\n"+fav+"\n"+foodImg, Toast.LENGTH_SHORT).show();
 

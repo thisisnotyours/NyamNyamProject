@@ -8,22 +8,24 @@ public class CategoryPageItems {
     String foodTitle;
     String foodSub;
 
-    Boolean checkbox;
+
 
     //전달할 데이터 추가해주기
     String foodMsg;
     String foodBackground;
 
 
+    Boolean fav;
+
     public CategoryPageItems() {
     }
 
-    public CategoryPageItems(String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground, Boolean checkbox) {
+    public CategoryPageItems(String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground, Boolean fav) {
         this.civ = civ;
         this.foodTitle = foodTitle;
         this.foodSub = foodSub;
         this.foodMsg = foodMsg;
         this.foodBackground = foodBackground;
-        this.checkbox= checkbox;
+        this.fav = fav;
     }
 }
