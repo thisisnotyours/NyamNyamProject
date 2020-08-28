@@ -4,6 +4,7 @@ public class CategoryPageItems {
 
     //recycler_category_page.xml 의 items
 
+    int num;
     String civ;
     String foodTitle;
     String foodSub;
@@ -20,7 +21,8 @@ public class CategoryPageItems {
     public CategoryPageItems() {
     }
 
-    public CategoryPageItems(String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground, Boolean fav) {
+    public CategoryPageItems(int num, String civ, String foodTitle, String foodSub, String foodMsg, String foodBackground, Boolean fav) {
+        this.num= num;
         this.civ = civ;
         this.foodTitle = foodTitle;
         this.foodSub = foodSub;

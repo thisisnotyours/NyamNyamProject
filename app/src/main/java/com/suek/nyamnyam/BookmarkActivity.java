@@ -20,20 +20,18 @@ public class BookmarkActivity extends AppCompatActivity {
     SQLiteDatabase db;
     //String dbName= "bookmark.db";
     String tableName= "bookmarkItems";
+    //Boolean isChecked= true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmark);
 
-        adapter= new BookmarkAdapter(this, items);
-        recyclerView= findViewById(R.id.recycler);
-        recyclerView.setAdapter(adapter);
 
 
 
-        db= openOrCreateDatabase("bookmark.db", MODE_PRIVATE, null);
 
+        /*db= openOrCreateDatabase("bookmark.db", MODE_PRIVATE, null);
 
         Cursor cursor= db.rawQuery("SELECT * FROM "+ tableName, null);
 
@@ -46,12 +44,17 @@ public class BookmarkActivity extends AppCompatActivity {
             String foodSub= cursor.getString(cursor.getColumnIndex("foodSub"));
             int fav= cursor.getInt(3); //[3]번방 콜룸
 
-            buffer.append(foodImg+""+foodTitle+""+foodSub+""+fav);
+            //buffer.append(foodImg+""+foodTitle+""+foodSub+""+fav);
+
+            items.add(new BookmarkItems(foodImg, foodTitle, foodSub));
+
+            adapter= new BookmarkAdapter(this, items);
+            recyclerView= findViewById(R.id.recycler);
+            recyclerView.setAdapter(adapter);
         }
 
-        Toast.makeText(this, buffer.toString(), Toast.LENGTH_SHORT).show();
 
-
+        Toast.makeText(this, buffer.toString(), Toast.LENGTH_SHORT).show();*/
 
     }
 }

@@ -1,5 +1,6 @@
 package com.suek.nyamnyam;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,10 @@ public class BookmarkAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<BookmarkItems> items;
 
+    SQLiteDatabase db;
+    String dbName="bookmark.db";
+    String tableName= "bookmarkItems";
+
 
     public BookmarkAdapter() {
     }
@@ -31,6 +37,8 @@ public class BookmarkAdapter extends RecyclerView.Adapter {
     public BookmarkAdapter(Context context, ArrayList<BookmarkItems> items) {
         this.context = context;
         this.items = items;
+
+        db= context.openOrCreateDatabase(dbName, Context.MODE_PRIVATE, null);
     }
 
 
@@ -68,6 +76,8 @@ public class BookmarkAdapter extends RecyclerView.Adapter {
         TextView tvFoodTitle;
         TextView tvFoodSub;
 
+        ImageView delete_fav;
+
 
 
         public VH(@NonNull final View itemView) {
@@ -77,17 +87,11 @@ public class BookmarkAdapter extends RecyclerView.Adapter {
             this.tvFoodTitle= itemView.findViewById(R.id.tv_food_title);
             this.tvFoodSub= itemView.findViewById(R.id.tv_food_sub);
 
+            this.delete_fav= itemView.findViewById(R.id.delete_fav);
 
 
 
 
-            //Bookmark
-//            checkBox.setChecked(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    db= SQLiteDatabase.openOrCreateDatabase(dbName, null);
-//                }
-//            });
 
 
 
@@ -108,6 +112,28 @@ public class BookmarkAdapter extends RecyclerView.Adapter {
                     context.startActivity(intent);
                 }
             });
+
+
+
+
+
+
+            delete_fav.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //AlertDialog.Builder builder= new AlertDialog.Builder(context, );
+
+                    //bookmarkItems 테이블에서 선택할 이름 얻어오기?
+                    String foodTitle= items.get(getLayoutPosition()).foodTitle;
+
+                    db.execSQL("DELETE FROM "+tableName+" WHERE foodTitle=?", new String[]{foodTitle});
+                }
+            });
+
+
+
+
+
 
 
         }

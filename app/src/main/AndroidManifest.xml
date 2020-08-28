@@ -27,7 +27,7 @@
         <activity android:name=".FoodCultureActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".VeganActivity" />
-        <activity android:name=".FoodCategoryPageActivity" />
+        <activity android:name=".CategoryPageActivity" />
         <activity android:name=".AccessActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".LaunchActivity">

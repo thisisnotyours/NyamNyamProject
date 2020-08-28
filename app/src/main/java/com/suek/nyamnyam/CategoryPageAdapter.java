@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 
 import org.w3c.dom.Text;
 
+import java.io.ObjectInput;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -29,6 +30,8 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
     ArrayList<CategoryPageItems> items;
 
     SQLiteDatabase db;
+    String dbName= "bookmark.db";
+    String tableName= "bookmarkItems";
 
     public CategoryPageAdapter() {
     }
@@ -36,6 +39,8 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
     public CategoryPageAdapter(Context context, ArrayList<CategoryPageItems> items) {
         this.context = context;
         this.items = items;
+
+        db= context.openOrCreateDatabase(dbName, Context.MODE_PRIVATE, null);   //context가 가지고있음
     }
 
 
@@ -51,13 +56,16 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
         VH vh= (VH)holder;
         CategoryPageItems categoryPageItems= items.get(position);
         //vh.civ.setImageResource(categoryPageItems.civ);
         Glide.with(context).load(categoryPageItems.civ).into(vh.civ);
         vh.tvFoodTitle.setText(categoryPageItems.foodTitle);  //foodTitle - CategoryPageItems 에 있는
         vh.tvFoodSub.setText(categoryPageItems.foodSub);
-        vh.fav.isChecked();
+        vh.fav.setChecked(categoryPageItems.fav);   //civ, title, sub..등등의 데이터들을 불러올때 기존에 선택했던 체크박스들이 선택되어나옴
+
+
     }
 
     @Override
@@ -75,8 +83,6 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
         TextView tvFoodSub;
 
         //Bookmark
-        String dbName= "bookmark.db";
-        String tableName= "bookmarkItems";
         CheckBox fav;
 
         public VH(@NonNull final View itemView) {
@@ -90,12 +96,13 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
 
 
 
+
             //Bookmark
             fav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                    db= SQLiteDatabase.openOrCreateDatabase(dbName, null);
+
 
                     items.get(getLayoutPosition()).fav= isChecked;
 
@@ -105,14 +112,16 @@ public class CategoryPageAdapter extends RecyclerView.Adapter {
                     int fav= items.get(getLayoutPosition()).fav? 1 : 0;
 
                     //Toast.makeText(context, ""+isChecked, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(context, ""+items.get(getLayoutPosition()), Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(context, ""+foodTitle+"\n"+foodSub+"\n"+fav+"\n"+foodImg, Toast.LENGTH_SHORT).show();
+                   Toast.makeText(context, ""+items.get(getLayoutPosition()), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(context, ""+foodTitle+"\n"+foodSub+"\n"+fav+"\n"+foodImg, Toast.LENGTH_SHORT).show();
 
                     if(isChecked){
                         db.execSQL(" INSERT INTO "+ tableName + "(foodImg, foodTitle, foodSub, fav) VALUES('"+foodImg+"','"+foodTitle+"','"+foodSub+"','"+fav+"')");
                     }else {
                         db.execSQL("DELETE FROM "+ tableName+" WHERE foodTitle='"+foodTitle+"'" );
                     }
+
+
 
                 }
             });
