@@ -14,12 +14,25 @@
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Are you ready to explore Korean food with Nyam Nyam?"
+        android:text="Are you ready to explore Korean food with"
         android:textColor="#ffffffff"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:layout_marginHorizontal="40dp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nyam Nyam?"
+        android:textColor="#ffffffff"
+        android:textSize="40sp"
         android:layout_marginHorizontal="40dp"
         android:layout_centerInParent="true"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_below="@id/tv"/>
 
 
 
@@ -31,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/non_member"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="20dp"/>
 
 
 
@@ -42,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="80dp"
         android:text="enter as a non-member"
         android:textColor="#ffffff"
         android:backgroundTint="#597DD8"

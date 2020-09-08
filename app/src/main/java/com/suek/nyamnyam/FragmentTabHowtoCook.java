@@ -28,6 +28,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class FragmentTabHowtoCook extends Fragment {
+    //이 Fragment는 레시피 액티비티에 붙어있는 존재.(RecipeActivity는 이 Fragment의 본체)
 
     //받아올 데이터들
     CircleImageView civFoodFile;
