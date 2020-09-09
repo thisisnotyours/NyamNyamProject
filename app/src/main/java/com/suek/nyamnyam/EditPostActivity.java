@@ -105,7 +105,7 @@ public class EditPostActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isOpen){                                 //isOpen 이 true? 아닐경우 else(위에서 이미 참조불린변수에 isOpen false 라고 줌)
+                if(!isOpen){                                        //isOpen 이 true? 아닐경우 else(위에서 이미 참조불린변수에 isOpen false 라고 줌)
                     tv_my_blog.setVisibility(View.VISIBLE);
                     tv_board.setVisibility(View.VISIBLE);
                     fab2_board.startAnimation(fab_open);

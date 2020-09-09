@@ -33,12 +33,10 @@ public class Grid_myPostActivity extends AppCompatActivity {
         String date= intent.getStringExtra("date");
         String title= intent.getStringExtra("title");
 
-        items.add(new Grid_mypost_Item("2020-07-28","https://recipe1.ezmember.co.kr/cache/recipe/2015/06/17/960fec592d6306a1ca52a72ec342c8a9.jpg","Gamjatang"));
-        items.add(new Grid_mypost_Item("2020-07-28","https://recipe1.ezmember.co.kr/cache/recipe/2015/06/17/960fec592d6306a1ca52a72ec342c8a9.jpg","Gamjatang"));
-        items.add(new Grid_mypost_Item("2020-07-28","https://recipe1.ezmember.co.kr/cache/recipe/2015/06/17/960fec592d6306a1ca52a72ec342c8a9.jpg","Gamjatang"));
-        items.add(new Grid_mypost_Item("2020-07-28","https://recipe1.ezmember.co.kr/cache/recipe/2015/06/17/960fec592d6306a1ca52a72ec342c8a9.jpg","Gamjatang"));
-        items.add(new Grid_mypost_Item("2020-07-28","https://recipe1.ezmember.co.kr/cache/recipe/2015/06/17/960fec592d6306a1ca52a72ec342c8a9.jpg","Gamjatang"));
-        items.add(new Grid_mypost_Item("2020-07-28","https://recipe1.ezmember.co.kr/cache/recipe/2015/06/17/960fec592d6306a1ca52a72ec342c8a9.jpg","Gamjatang"));
+        items.add(new Grid_mypost_Item("2020-07-28",R.drawable.gamjajeon,"Gamjajeon"));
+        items.add(new Grid_mypost_Item("2020-07-29",R.drawable.naengmyeon,"Nangmyeon"));
+        items.add(new Grid_mypost_Item("2020-08-02",R.drawable.korean_bbq,"Korean BBQ"));
+        items.add(new Grid_mypost_Item("2020-08-10",R.drawable.squid,"Squid"));
 
         ivList= findViewById(R.id.iv_list);
         ivList.setOnClickListener(new View.OnClickListener() {
