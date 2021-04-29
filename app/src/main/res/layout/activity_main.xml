@@ -20,16 +20,22 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#FFC907"/>
+                android:background="#FFFFFF"
+                app:titleTextColor="#759AF8"/>
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffffff"
-                app:tabIndicatorColor="#FFC907"
+                app:tabIndicatorColor="#759AF8"
                 app:tabIndicatorHeight="4dp"
                 app:tabSelectedTextColor="#333333"/>
         </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
 
 
 
@@ -38,17 +44,141 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </androidx.viewpager.widget.ViewPager>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+
+            <TextView
+                android:id="@+id/tv_post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fabSize="normal"
+                android:text="Post"
+                android:textColor="#54555A"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="300dp"
+                android:layout_marginEnd="98dp"
+                android:elevation="5dp"
+                android:background="@drawable/fab_bg"
+                android:padding="6dp"
+                android:visibility="invisible"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab3_post"
+                app:borderWidth="2dp"
+                app:backgroundTint="#FF5722"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="290dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="#FF5722"
+                android:src="@drawable/ic_edit_white_24dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:pressedTranslationZ="12dp"
+                app:fabCustomSize="60dp"
+                android:background="?attr/selectableItemBackground"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_board"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="226dp"
+                android:layout_marginEnd="98dp"
+                android:background="@drawable/fab_bg"
+                android:elevation="5dp"
+                android:text="Board"
+                android:padding="6dp"
+                android:textColor="#54555A"
+                android:visibility="invisible"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab2_board"
+                app:borderWidth="2dp"
+                app:backgroundTint="#FFC107"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFC107"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_margin="16dp"/>
+                android:layout_marginBottom="206dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_star_white_24dp"
+                android:clickable="true"
+                android:elevation="16dp"
+                android:focusable="true"
+                app:pressedTranslationZ="12dp"
+                app:fabCustomSize="60dp"
+                android:background="?attr/selectableItemBackground"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_my_blog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="146dp"
+                android:layout_marginEnd="98dp"
+                android:padding="6dp"
+                android:text="MY Post"
+                android:textColor="#54555A"
+                android:background="@drawable/fab_bg"
+                android:elevation="5dp"
+                android:visibility="invisible"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab1_my_blog"
+                app:borderWidth="2dp"
+                app:backgroundTint="#6FD59D"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="126dp"
+                android:layout_marginEnd="30dp"
+                android:clickable="true"
+                android:elevation="16dp"
+                android:focusable="true"
+                app:pressedTranslationZ="12dp"
+                android:src="@drawable/ic_person_white_24dp"
+                app:fabCustomSize="60dp"
+                android:backgroundTint="#6FD59D"
+                android:background="?attr/selectableItemBackground"
+                android:visibility="invisible"/>
+
+            <!--            -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                app:borderWidth="2dp"
+                app:backgroundTint="#759AF8"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:elevation="16dp"
+                android:focusable="true"
+                app:pressedTranslationZ="12dp"
+                app:fabCustomSize="70dp"
+                android:src="@drawable/ic_restaurant_white_60dp"
+                android:backgroundTint="#759AF8"
+                android:visibility="visible"
+                android:background="?attr/selectableItemBackground"/>  <!--app:fabSize="auto"-->  <!--app:fabCustomSize="100dp"-->
+
         </RelativeLayout>
 
     </LinearLayout>
@@ -63,9 +193,14 @@
 
 
     <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start">
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/header_nav"
+        android:layout_gravity="start"
+        android:background="@drawable/drawer_background"
+        android:layout_marginBottom="30dp">
     </com.google.android.material.navigation.NavigationView>
 
 

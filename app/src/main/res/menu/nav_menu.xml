@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home_grey_24dp"/>  <!--menu item 에 onclick 안됨-->
+    <item android:id="@+id/food_category"
+        android:title="Food Category"
+        android:icon="@drawable/ic_restaurant_grey_24dp" />
+    <item android:id="@+id/bookmark"
+        android:title="Bookmark"
+        android:icon="@drawable/ic_check_box_grey_24dp"/>
+    <item android:id="@+id/food_culture"
+        android:title="Food Culture"
+        android:icon="@drawable/ic_board_star_grey_40dp"/>
+    <item android:id="@+id/editpost"
+        android:title="Write a post"
+        android:icon="@drawable/ic_post_edit_grey_40dp"/>
+    <item android:id="@+id/board"
+        android:title="Board"
+        android:icon="@drawable/ic_supervisor_account_grey_40dp"/>
+    <item android:id="@+id/mypost"
+        android:title="My Post"
+        android:icon="@drawable/ic_person_grey_24dp"/>
+    <item android:id="@+id/terms_condition"
+        android:title="Terms &amp; Condition"
+        android:icon="@drawable/ic_info_grey_40dp"/>
+
+</menu>

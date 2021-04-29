@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="130dp"
+        android:background="@drawable/background2"
+        android:backgroundTint="#88ffffff"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:src="@drawable/bibimbap" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sanchae Bibimbap"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/civ"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VEGAN/ NON HALAL"
+            android:textColor="#ffffff"
+            android:layout_toRightOf="@id/civ"
+            android:layout_below="@id/tv_title"
+
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/tv_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="산채 비빔밥"
+            android:layout_toRightOf="@id/civ"
+            android:layout_below="@id/tv_category"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

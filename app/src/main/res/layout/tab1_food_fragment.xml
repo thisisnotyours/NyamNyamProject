@@ -18,19 +18,54 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/civ_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_person_white_24dp"
+                        app:civ_circle_background_color="#B7C1DA"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#B7C1DA"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="6dp"/>
+                    <TextView
+                        android:id="@+id/tv_share_your_cook"
+                        android:padding="8dp"
+                        android:layout_width="330dp"
+                        android:layout_height="40dp"
+                        android:layout_toRightOf="@id/civ_profile"
+                        android:background="@drawable/background5"
+                        android:text="Want to share your cook?"
+                        android:textSize="16sp"
+                        android:textColor="#525357"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="#B7C1DA"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_food_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:padding="4dp"/>
                 <TextView
                     android:id="@+id/tv_food_category"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SOUP"/>
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
 
@@ -44,8 +79,9 @@
                 <ImageView
                     android:id="@+id/iv_food_culture"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@color/colorPrimary"/>
+                    android:layout_height="130dp"
+                    android:background="@drawable/foodculture2"
+                    android:clickable="true"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -54,9 +90,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Recommended Recipes"/>
+                        android:text="RECOMMENDED RECIPES"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"/>
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_recipes"
+                        android:id="@+id/recycler_recommended"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -64,27 +105,36 @@
                     <TextView
                         android:id="@+id/tv_recipes"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gimbab"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:background="#B7C1DA"
+                    android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Special Days in Korea"/>
+                        android:text="SPECIAL EVENTS IN KOREA"
+                        android:layout_gravity="left"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
                     <CalendarView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/calendarview"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
 
 
             </LinearLayout>
-        </LinearLayout>
 
+
+        </LinearLayout>
 
     </ScrollView>
 

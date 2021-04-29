@@ -4,17 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/bibimbap"
+    android:backgroundTint="#55000000"
+    android:backgroundTintMode="src_over"
     tools:context=".LoginActivity">
 
+
     <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login Activity"
+        android:text="Are you ready to explore Korean food with Nyam Nyam?"
+        android:textColor="#ffffffff"
         android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginHorizontal="40dp"
         android:layout_centerInParent="true"
-        android:paddingLeft="30dp"/>
+        android:gravity="center"/>
+
+
+
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_google"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_above="@id/non_member"
+        android:layout_marginBottom="80dp"/>
+
+    <Button
+        android:id="@+id/non_member"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="enter as a non-member"
+        android:textColor="#ffffff"
+        android:backgroundTint="#597DD8"
+        android:onClick="clickNonMember"/>
+
+    <!--android:background="@drawable/non_member_button"-->
+
 
     <!--Login API - Google && Facebook 추가하기-->
 

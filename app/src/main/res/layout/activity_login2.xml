@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bibimbap"
+    android:backgroundTint="#55000000"
+    android:backgroundTintMode="src_over"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are you ready to explore Korean food with"
+        android:textColor="#ffffffff"
+        android:textSize="30sp"
+        android:layout_marginHorizontal="40dp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nyam Nyam?"
+        android:textColor="#ffffffff"
+        android:textSize="40sp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_below="@id/tv"/>
+
+
+
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_signIn_btn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/non_member"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+
+
+
+
+    <Button
+        android:id="@+id/non_member"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:text="enter as a non-member"
+        android:textColor="#ffffff"
+        android:backgroundTint="#597DD8"
+        android:onClick="clickNonMember"/>
+
+    <!--android:background="@drawable/non_member_button"-->
+
+
+    <!--Login API - Google && Facebook 추가하기-->
+
+</RelativeLayout>

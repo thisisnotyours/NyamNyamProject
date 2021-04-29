@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -8,7 +9,7 @@ android {
         applicationId "com.suek.nyamnyam"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
+        versionCode 3
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -19,6 +20,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
@@ -33,14 +39,47 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 
-
-    //Google API 추가
+    //Google API 추가- 첫번째로 시도한 로그인- 옛날 것
     implementation 'com.google.firebase:firebase-auth:19.3.1'
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
 
 
+    //Google Login2 Api Firebase 로그인
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+
+
     implementation 'com.android.support:design:29.0.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+
+    //google login- firebase 인증절차 라이브러리
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'    //애널리틱스
+    implementation 'com.google.firebase:firebase-auth:19.3.1'         //인증
+    //프로필 이미지를 온전하게 구현하려면 glide 속성도 필요- 이미지 로딩 라이브러리 위에서 이미 추가.
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'    //글라이드 이미지 로딩
+
+
+    //youtubePlayerView
+    implementation 'kr.co.prnd:youtube-player-view:1.3.0'
+
+
+    //Firebase SDK 추가
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    //firebase messaging
+    implementation 'com.google.firebase:firebase-messaging:20.1.7'
+    //실시간 DB 추가
+    implementation 'com.google.firebase:firebase-database:19.1.0'
+    //Storage SDK 추가
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
 
 
 }
